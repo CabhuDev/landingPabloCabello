@@ -1,75 +1,82 @@
 # backend/app/core/mailer.py
 
-import os
 import smtplib
-from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from dotenv import load_dotenv
+from email.mime.multipart import MIMEMultipart
+import os
 
-# Cargar las variables de entorno desde el archivo .env
-load_dotenv()
 
-# Leer las credenciales y configuración desde las variables de entorno
-EMAIL_HOST = os.getenv("EMAIL_HOST")
-EMAIL_PORT = int(os.getenv("EMAIL_PORT", 587))
-EMAIL_USERNAME = os.getenv("EMAIL_USERNAME")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-EMAIL_FROM = os.getenv("EMAIL_FROM")
-EMAIL_TO = os.getenv("EMAIL_TO")
+def send_email_smtp(to_email: str, subject: str, body: str) -> bool:
+    """
+    Envía email usando SMTP de Gmail con credenciales de aplicación.
+    """
+    # Configuración SMTP de Gmail
+    smtp_server = "smtp.gmail.com"
+    smtp_port = 587
+    
+    # Credenciales de tu cuenta Gmail (usar contraseña de aplicación)
+    gmail_user = os.getenv("GMAIL_USER", "tu-email@gmail.com")
+    gmail_password = os.getenv("GMAIL_APP_PASSWORD", "tu-password-app")
+    
+    try:
+        # Crear mensaje con codificación UTF-8
+        msg = MIMEMultipart('alternative')
+        msg['From'] = gmail_user
+        msg['To'] = to_email
+        msg['Subject'] = subject
+        msg.attach(MIMEText(body, 'plain', 'utf-8'))
+        
+        # Convertir a string con codificación correcta
+        msg_str = msg.as_string().encode('utf-8')
+        
+        # Conectar y enviar
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        server.starttls()
+        server.login(gmail_user, gmail_password)
+        server.sendmail(gmail_user, to_email, msg_str)
+        server.quit()
+        
+        print(f"Email enviado correctamente a {to_email}")
+        return True
+        
+    except Exception as e:
+        print(f"Error enviando email: {e}")
+        return False
+
 
 async def send_contact_email(name: str, email: str, message: str) -> bool:
     """
-    Construye y envía un correo electrónico con los datos del formulario de contacto.
-
-    Args:
-        name (str): Nombre del remitente.
-        email (str): Email del remitente.
-        message (str): Mensaje del formulario.
-
-    Returns:
-        bool: True si el correo se envió con éxito, False en caso contrario.
+    Envía notificación de contacto a tu email usando SMTP.
     """
-    if not all([EMAIL_HOST, EMAIL_PORT, EMAIL_USERNAME, EMAIL_PASSWORD, EMAIL_FROM, EMAIL_TO]):
-        print("Error: Faltan variables de entorno para la configuración del email.")
-        return False
+    subject = f"Nuevo Mensaje de Contacto de {name}"
+    body = f"""Has recibido un nuevo mensaje a través del formulario de tu página web.
+------------------------------------------------------------------
 
-    # Crear el cuerpo del mensaje
-    msg = MIMEMultipart()
-    msg['From'] = EMAIL_FROM
-    msg['To'] = EMAIL_TO
-    msg['Subject'] = f"Nuevo Mensaje de Contacto de {name}"
+Nombre: {name}
+Email: {email}
 
-    body = f"""
-    Has recibido un nuevo mensaje a través del formulario de tu página web.
-    ------------------------------------------------------------------
+Mensaje:
+{message}
 
-    Nombre: {name}
-    Email: {email}
+------------------------------------------------------------------
+"""
+    
+    # Enviar a tu email personal
+    your_email = os.getenv("YOUR_EMAIL", "pablo.cabello@tu-dominio.com")
+    return send_email_smtp(your_email, subject, body)
 
-    Mensaje:
-    {message}
 
-    ------------------------------------------------------------------
+async def send_thank_you_email(name: str, email: str) -> bool:
     """
-    msg.attach(MIMEText(body, 'plain'))
+    Envía un email de agradecimiento al usuario que rellenó el formulario.
+    """
+    subject = "Gracias por contactar - Hemos recibido tu mensaje"
+    body = f"""Hola {name},
 
-    try:
-        print("Intentando conectar con el servidor SMTP...")
-        # Conectar al servidor SMTP
-        server = smtplib.SMTP(EMAIL_HOST, EMAIL_PORT)
-        server.starttls()  # Iniciar conexión segura
-        server.login(EMAIL_USERNAME, EMAIL_PASSWORD)
-        
-        # Enviar el correo
-        text = msg.as_string()
-        server.sendmail(EMAIL_FROM, EMAIL_TO, text)
-        server.quit()
-        
-        print("Correo enviado con éxito.")
-        return True
-    except smtplib.SMTPAuthenticationError as e:
-        print(f"Error de autenticación SMTP: {e}")
-        return False
-    except Exception as e:
-        print(f"Error al enviar el correo: {e}")
-        return False
+Gracias por ponerte en contacto con nosotros. Hemos recibido tu mensaje y te responderemos lo antes posible.
+
+Un saludo,
+El equipo de Pablo Cabello
+"""
+    
+    return send_email_smtp(email, subject, body)

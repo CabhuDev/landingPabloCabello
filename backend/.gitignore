@@ -1,2 +1,7 @@
 # Ignore virtual environment folder
 .venv/
+
+# Ignore sensitive credential files
+credentials.json
+token.json
+.env

@@ -10,3 +10,7 @@ uvicorn[standard]
 # Data validation library (a core part of FastAPI)
 # The [email] extra includes the email-validator package
 pydantic[email]
+
+# --- Google API Client Libraries for Gmail ---
+google-api-python-client
+google-auth-oauthlib

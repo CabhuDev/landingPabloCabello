@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: pablo-cabello-web
+    ports:
+      - "8080:80"     # Puerto 8080 para evitar conflicto con obratec.app
+      - "8443:443"    # Puerto 8443 para HTTPS (si se necesita)
+    environment:
+      - ENV=production
+      - DEBUG=false
+      - DATABASE_URL=sqlite:///./app.db  # Cambiar en producción
+    volumes:
+      # Volumen para logs persistentes
+      - ./logs:/app/logs
+      # Volumen para base de datos (si usas SQLite)
+      - ./data:/app/data
+      # Volumen para certificados SSL (producción)
+      - ./certs:/app/certs
+    restart: unless-stopped
+    networks:
+      - pablo-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Servicio de base de datos (opcional, para PostgreSQL)
+  # db:
+  #   image: postgres:15-alpine
+  #   container_name: pablo-cabello-db
+  #   environment:
+  #     - POSTGRES_DB=pablo_cabello
+  #     - POSTGRES_USER=pablouser
+  #     - POSTGRES_PASSWORD=securepassword123
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #     - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+  #   restart: unless-stopped
+  #   networks:
+  #     - pablo-network
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U pablouser -d pablo_cabello"]
+  #     interval: 10s
+  #     timeout: 5s
+  #     retries: 5
+
+networks:
+  pablo-network:
+    driver: bridge
+
+volumes:
+  # postgres_data:  # Descomenta si usas PostgreSQL
+  logs:
+  data:

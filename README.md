@@ -48,9 +48,12 @@
 📦 WebPabloAparejador/
 ├── 📄 README.md                    # Documentación principal
 ├── 📄 CLAUDE.md                    # Instrucciones de desarrollo
-├── 📄 METRICAS-IMPLEMENTACION.md   # Guía de métricas en producción
-├── 📄 pablocabello.md              # Plan técnico detallado
-├── 📄 guiaEstilos.md               # Guía de diseño premium
+├── 📄 Dockerfile                   # Imagen Docker multi-stage
+├── 📄 docker-compose.yml           # Orquestación Docker
+├── 📄 docker-build.sh              # Script construcción (wrapper)
+├── 📄 docker-deploy.sh             # Script despliegue (wrapper)
+├── 📄 dev-server.bat               # Desarrollo Windows (batch)
+├── 📄 dev-server.ps1               # Desarrollo Windows (PowerShell)
 │
 ├── 🎨 frontend/                    # Web premium optimizada
 │   ├── 📄 index.html              # Landing page con structured data
@@ -70,17 +73,25 @@
 │       └── 🖼️ images/
 │           └── 📄 project-placeholder.png
 │
-└── 🔧 backend/                     # API con FastAPI
-    ├── 📁 app/
-    │   ├── 📄 main.py              # Endpoints + CORS
-    │   ├── 📄 models.py            # Validación Pydantic
-    │   └── 📁 core/
-    │       └── 📄 mailer.py        # Sistema de emails
-    │
-    ├── 📁 tests/
-    │   └── 📄 test_main.py         # Tests automatizados
-    │
-    └── 📄 requirements.txt         # Dependencias Python
+├── 🔧 backend/                     # API con FastAPI
+│   ├── 📁 app/
+│   │   ├── 📄 main.py              # Endpoints + CORS
+│   │   ├── 📄 models.py            # Validación Pydantic
+│   │   └── 📁 core/
+│   │       └── 📄 mailer.py        # Sistema de emails
+│   │
+│   ├── 📁 tests/
+│   │   └── 📄 test_main.py         # Tests automatizados
+│   │
+│   └── 📄 requirements.txt         # Dependencias Python
+│
+└── 🐳 docker/                      # Configuración Docker
+    ├── 📄 README-Docker.md         # Documentación Docker completa
+    ├── 📄 build.sh                 # Script de construcción
+    ├── 📄 deploy.sh                # Script de despliegue  
+    ├── 📄 start.sh                 # Script inicio contenedor
+    ├── 📄 nginx.conf               # Configuración Nginx
+    └── 📄 supervisord.conf         # Gestión de procesos
 ```
 
 ---
@@ -176,25 +187,50 @@
 
 ### **🚀 Desarrollo Local:**
 
-#### **1. Backend (FastAPI):**
+#### **Opción 1: Scripts automatizados (recomendado)**
 ```bash
+# Windows (Batch)
+./dev-server.bat
+
+# Windows (PowerShell)
+./dev-server.ps1
+```
+
+Los scripts automáticamente:
+- ✅ Verifican dependencias (Node.js, Python)
+- ✅ Instalan `serve` si falta  
+- ✅ Inician backend (FastAPI) y frontend (serve)
+- ✅ Abren navegador automáticamente
+
+#### **Opción 2: Manual**
+```bash
+# Terminal 1 - Backend
 cd backend
-pip install -r requirements.txt
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
-```
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 
-#### **2. Frontend (Local Server):**
-```bash
+# Terminal 2 - Frontend  
 cd frontend
-# Opción 1: Python
-python -m http.server 3000
-
-# Opción 2: Node.js
-npx serve . -p 3000
-
-# Opción 3: VS Code Live Server
-# Instalar extensión + click derecho en index.html
+npx serve . --cors
 ```
+
+### **🐳 Despliegue con Docker**
+
+#### **Construcción:**
+```bash
+./docker-build.sh [tag]
+```
+
+#### **Desarrollo con Docker:**
+```bash
+docker-compose up -d
+```
+
+#### **Producción:**
+```bash
+./docker-deploy.sh
+```
+
+> 📖 **Documentación completa Docker:** [docker/README-Docker.md](docker/README-Docker.md)
 
 ### **📊 Configuración de Métricas:**
 

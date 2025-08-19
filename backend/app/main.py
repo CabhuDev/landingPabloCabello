@@ -20,7 +20,15 @@ app = FastAPI(
 app.mount("/assets", StaticFiles(directory="../frontend/assets"), name="assets")
 
 
-# 3. Definir el endpoint raíz para servir index.html
+# Definir el endpoint de health check
+@app.get("/health")
+async def health_check():
+    """
+    Endpoint para verificar que la aplicación está funcionando correctamente.
+    """
+    return {"status": "healthy", "version": "1.0.0"}
+
+# Definir el endpoint raíz para servir index.html
 @app.get("/", response_class=FileResponse)
 async def read_index():
     """
@@ -29,7 +37,7 @@ async def read_index():
     return FileResponse("../frontend/index.html")
 
 
-# 4. Definir el endpoint para el formulario de contacto
+# Definir el endpoint para el formulario de contacto
 @app.post("/api/v1/contact")
 async def submit_contact_form(form_data: ContactForm):
     try:
@@ -56,3 +64,13 @@ async def submit_contact_form(form_data: ContactForm):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Un error inesperado ocurrió: {e}")
+
+
+# Definir endpoint para ver la relación de usuarios que mandaron un formulario de contacto
+@app.get("/api/v1/contact/submissions")
+async def get_contact_submissions():
+    """
+    Endpoint para obtener la lista de usuarios que han enviado el formulario de contacto.
+    """
+    # Aquí iría la lógica para obtener las presentaciones de contacto, por ejemplo, desde una base de datos.
+    return {"status": "success", "data": []}

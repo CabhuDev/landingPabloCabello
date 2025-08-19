@@ -1,0 +1,55 @@
+{
+  "name": "pablo-cabello-aparejador",
+  "version": "1.0.0",
+  "description": "Landing page profesional para Pablo Cabello - Aparejador especialista en retail",
+  "main": "frontend/index.html",
+  "scripts": {
+    "dev": "npx http-server frontend --cors --port 3000",
+    "dev:backend": "cd backend && python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000",
+    "dev:full": "powershell -ExecutionPolicy Bypass -File dev-server.ps1",
+    "serve": "npx http-server frontend --cors",
+    "build": "echo No build process needed for static files",
+    "lint:js": "npx eslint frontend/assets/js/**/*.js",
+    "format:js": "npx prettier --write frontend/assets/js/**/*.js",
+    "validate:html": "npx html-validate frontend/index.html",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix",
+    "update": "npm update",
+    "clean:win": "powershell -Command \"Remove-Item -Recurse -Force node_modules -ErrorAction SilentlyContinue; Remove-Item package-lock.json -ErrorAction SilentlyContinue\"",
+    "fresh-install": "npm run clean:win && npm install",
+    "test": "echo Tests not implemented yet"
+  },
+  "keywords": [
+    "aparejador",
+    "constructor",
+    "retail",
+    "granada",
+    "arquitecto-tecnico",
+    "landing-page"
+  ],
+  "author": {
+    "name": "Pablo Cabello",
+    "email": "contacto@pablocabello.com",
+    "url": "https://pablocabello.com"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "eslint": "^9.33.0",
+    "prettier": "^3.6.2",
+    "html-validate": "^8.29.0",
+    "@eslint/js": "^9.33.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CabhuDev/landingPabloCabello.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CabhuDev/landingPabloCabello/issues"
+  },
+  "homepage": "https://pablocabello.com"
+}

@@ -1,0 +1,24 @@
+# Core web framework - Latest stable
+fastapi>=0.115.0
+
+# ASGI server with performance extras
+uvicorn[standard]>=0.30.0
+
+# Data validation and settings - V2 with performance improvements
+pydantic>=2.9.0
+email-validator>=2.2.0
+
+# Environment management
+python-dotenv>=1.0.0
+
+# Google API dependencies - Latest stable versions
+google-api-python-client>=2.140.0
+google-auth-oauthlib>=1.2.0
+google-auth>=2.30.0
+google-api-core>=2.19.0
+
+# HTTP client with security updates
+requests>=2.32.0
+
+# Additional utilities
+python-multipart>=0.0.9

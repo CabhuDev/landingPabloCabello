@@ -1,0 +1,273 @@
+/*
+--- GUÍA DE ESTILOS --- 
+
+** 1. Paleta de Colores **
+- Primario (Azul marino): #003049
+- Secundario / CTA (Mostaza): #E09F3E
+- Neutral (Gris cemento): #8D99AE
+- Acento (Verde oliva): #6A994E
+- Base (Blanco): #FFFFFF
+- Texto (Gris antracita): #212529
+
+** 2. Tipografía **
+- Títulos: Montserrat o Poppins, semibold/bold
+- Párrafos: Lato o Open Sans, regular
+
+*/
+
+/* --- Importación de Fuentes (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@600;700&display=swap');
+
+/* --- Variables Globales (CSS Custom Properties) --- */
+:root {
+    --color-primary: #003049;       /* Azul marino */
+    --color-secondary-cta: #E09F3E; /* Mostaza */
+    --color-neutral: #8D99AE;        /* Gris cemento */
+    --color-accent: #6A994E;         /* Verde oliva */
+    --color-base: #FFFFFF;           /* Blanco */
+    --color-text: #212529;           /* Gris antracita */
+
+    --font-headings: 'Montserrat', sans-serif;
+    --font-body: 'Lato', sans-serif;
+
+    --container-width: 112rem; /* 1120px */
+    --border-radius: 0.8rem;   /* 8px */
+}
+
+/* --- Reset Básico y Estilos Globales --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 1.6rem; /* 16px */
+    color: var(--color-text);
+    background-color: var(--color-base);
+    line-height: 1.6;
+}
+
+/* --- Layout y Contenedor --- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+section {
+    padding: 6rem 0;
+}
+
+/* --- Tipografía --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-headings);
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 4rem; line-height: 1.2; }
+h2 { font-size: 3.2rem; }
+h3 { font-size: 2.4rem; color: var(--color-text); }
+
+.subtitle, .section-subtitle {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+a {
+    color: var(--color-secondary-cta);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+/* --- Botones --- */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-secondary-cta);
+    color: var(--color-base);
+    font-family: var(--font-headings);
+    font-weight: 700;
+    padding: 1.2rem 2.4rem;
+    border-radius: var(--border-radius);
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: var(--color-accent);
+    color: var(--color-base);
+    transform: translateY(-0.3rem);
+}
+
+/* --- Header y Navegación --- */
+.main-header {
+    background-color: var(--color-base);
+    padding: 2rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,0.05);
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: var(--font-headings);
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+}
+
+.main-nav a {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.6rem;
+    font-family: var(--font-headings);
+}
+
+/* --- Sección Hero --- */
+#hero {
+    text-align: center;
+    padding: 8rem 0;
+}
+
+/* --- Secciones Alternas --- */
+#servicios {
+    background-color: #f8f9fa; /* Un gris muy claro, más sutil que el de cemento */
+}
+
+/* --- Grids de Servicios y Proyectos --- */
+.services-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 3rem;
+}
+
+.service-item, .project-item {
+    background-color: var(--color-base);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0.4rem 1.5rem rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.project-item img {
+    max-width: 100%;
+    border-radius: var(--border-radius);
+    margin-bottom: 1rem;
+}
+
+/* --- Formulario de Contacto --- */
+.contact-form {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-family: var(--font-headings);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 1.6rem;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.3rem rgba(0, 48, 73, 0.1);
+}
+
+#form-status {
+    margin-top: 1rem;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--color-primary);
+    color: var(--color-base);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.main-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-footer a {
+    color: var(--color-secondary-cta);
+    font-weight: 600;
+}
+
+.main-footer a:hover {
+    color: var(--color-base);
+}
+
+/* --- Media Queries para Responsividad --- */
+@media (max-width: 48em) { /* 768px */
+    html {
+        font-size: 58%; /* Ajuste ligero para móviles */
+    }
+
+    h1 { font-size: 3.6rem; }
+    h2 { font-size: 3rem; }
+
+    .main-header .container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .main-footer .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

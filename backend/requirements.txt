@@ -1,0 +1,12 @@
+# --- Backend Dependencies ---
+
+# Core web framework
+fastapi
+
+# ASGI server to run the application
+# The [standard] extra includes useful packages like python-dotenv for environment variables
+uvicorn[standard]
+
+# Data validation library (a core part of FastAPI)
+# The [email] extra includes the email-validator package
+pydantic[email]

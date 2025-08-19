@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environment
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Node modules (si usas alguna herramienta de build)
+node_modules/
+
+# Archivos temporales
+*.tmp
+*.temp
+
+# AI Conversations - Archivos de conversaciones con IAs
+claude.md
+gemini.md
+chatgpt.md
+copilot.md
+ai-conversations/
+conversations/
+*.ai.md
+*-ai.md
+*-conversation.md
+
+# Documentación personal
+CLAUDE.md
+GEMINI.md
+guiaEstilos.md

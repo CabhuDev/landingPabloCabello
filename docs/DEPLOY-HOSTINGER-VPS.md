@@ -47,7 +47,7 @@ DEBUG=false
 DATABASE_URL=sqlite:///./app.db
 EOF
 
-chmod 600 backend/.env
+chmod 600 backend/.env 
 ```
 
 ### **3. Deploy con Docker:**

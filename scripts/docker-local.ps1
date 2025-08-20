@@ -10,7 +10,7 @@ Write-Host ""
 $ImageName = "pablo-cabello-web"
 $ContainerName = "pablo-cabello-local"
 $Tag = "latest"
-$Port = "80"
+$LocalPort = "8080"
 
 # Verificar Docker
 Write-Host "Verificando Docker..." -ForegroundColor Green
@@ -102,7 +102,7 @@ switch ($choice) {
         # Ejecutar contenedor
         docker run -d `
             --name $ContainerName `
-            -p "${Port}:80" `
+            -p "${LocalPort}:80" `
             -v "${PWD}\logs:/app/logs" `
             -v "${PWD}\data:/app/data" `
             -e ENV=development `
@@ -112,8 +112,9 @@ switch ($choice) {
         if ($LASTEXITCODE -eq 0) {
             Write-Host "✅ Contenedor iniciado exitosamente" -ForegroundColor Green
             Write-Host ""
-            Write-Host "🌐 Aplicación disponible en: http://localhost:$Port" -ForegroundColor Cyan
-            Write-Host "📋 API Docs: http://localhost:$Port/docs" -ForegroundColor Cyan
+            Write-Host "🌐 Aplicación disponible en: http://localhost:$LocalPort" -ForegroundColor Cyan
+            Write-Host "📋 API Docs: http://localhost:$LocalPort/docs" -ForegroundColor Cyan
+            Write-Host "� Health Check: http://localhost:$LocalPort/health" -ForegroundColor Cyan
             
             # Esperar a que esté listo
             Write-Host ""

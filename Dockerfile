@@ -51,13 +51,12 @@ COPY --chown=appuser:appuser frontend/ /app/frontend/
 COPY docker/nginx.conf /etc/nginx/sites-available/default
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY docker/start.sh /app/start.sh
-COPY docker/generate-certs.sh /app/generate-certs.sh
 
-# Hacer ejecutables los scripts
-RUN chmod +x /app/start.sh /app/generate-certs.sh
+# Hacer ejecutable el script
+RUN chmod +x /app/start.sh
 
-# Exponer puertos 80 y 443
-EXPOSE 80 443
+# Exponer puerto 80 (solo HTTP, el VPS maneja SSL)
+EXPOSE 80
 
 # Supervisor debe ejecutarse como root para manejar nginx
 # Las dependencias de Python están en /home/appuser/.local pero ejecutamos como root

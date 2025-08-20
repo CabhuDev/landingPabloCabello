@@ -5,8 +5,7 @@ services:
     build: .
     container_name: pablo-cabello-web
     ports:
-      - "127.0.0.1:8080:80"   # Solo localhost - puerto HTTP
-      - "127.0.0.1:8443:443"  # Solo localhost - puerto HTTPS
+      - "127.0.0.1:8080:80"   # VPS proxy → Container nginx → Frontend + API
     environment:
       - ENV=production
       - DEBUG=false
@@ -16,8 +15,6 @@ services:
       - ./logs:/app/logs
       # Volumen para base de datos (si usas SQLite)
       - ./data:/app/data
-      # Volumen para certificados SSL (producción)
-      - ./certs:/app/certs
     restart: unless-stopped
     networks:
       - pablo-network

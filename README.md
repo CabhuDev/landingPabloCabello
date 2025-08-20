@@ -48,6 +48,8 @@
 📦 WebPabloAparejador/
 ├── 📄 README.md                    # Documentación principal
 ├── 📄 CLAUDE.md                    # Instrucciones de desarrollo
+├── 🐳 docker-compose.yml           # Orquestación de contenedores  
+├── 🐳 Dockerfile                   # Imagen optimizada multi-stage
 ├── 📄 Dockerfile                   # Imagen Docker multi-stage
 ├── 📄 docker-compose.yml           # Orquestación Docker
 ├── 📄 eslint.config.js            # Configuración ESLint
@@ -65,14 +67,13 @@
 │       └── 📄 DEPLOY-VPS.md        # Guía de despliegue VPS
 │
 ├── 📁 scripts/                     # 🔧 Scripts desarrollo/despliegue
-│   ├── 📄 add-pablocabello-nginx.sh # Configuración nginx específica
-│   ├── 📄 build.sh                 # Script construcción
-│   ├── 📄 deploy.sh                # Script despliegue
-│   ├── 📄 dev-server.ps1           # Desarrollo Windows (PowerShell)
+│   ├── 📄 deploy-production.ps1    # Script principal de producción
+│   ├── 📄 docker-local.ps1         # Testing local Windows
+│   ├── 📄 utilities.ps1            # Monitoreo y utilidades
+│   ├── 📄 build.sh                 # Script construcción Linux
+│   ├── 📄 deploy.sh                # Script despliegue Linux
 │   ├── 📄 docker-build.sh          # Construcción Docker
 │   ├── 📄 docker-deploy.sh         # Despliegue Docker
-│   ├── 📄 docker-local.ps1         # Docker local Windows
-│   ├── 📄 generate-certs.sh        # Generación certificados SSL
 │   ├── 📄 start.sh                 # Inicio contenedor
 │   └── 📄 vps-setup.sh             # Configuración inicial VPS
 │

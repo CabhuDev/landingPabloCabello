@@ -5,7 +5,8 @@
 
 echo "============================================"
 echo "  Pablo Cabello - Aparejador & Desarrollador"
-echo "  Iniciando aplicación..."
+echo "  Iniciando aplicación en puerto 8080..."
+echo "  VPS: pablocabello.com"
 echo "============================================"
 
 # Crear directorios necesarios

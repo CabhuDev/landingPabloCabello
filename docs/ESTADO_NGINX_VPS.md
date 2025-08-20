@@ -1,6 +1,6 @@
 # Estado de Nginx y Server.js en VPS - obratec.app
 
-**Fecha de actualización:** 19 de agosto de 2025  
+**Fecha de actualización:** 20 de agosto de 2025  
 **VPS:** srv844163 (31.97.36.248)  
 **Dominio:** obratec.app  
 
@@ -9,10 +9,13 @@
 ## 🌐 Estado General del Sistema
 
 ### ✅ Servicios Activos
-- **Nginx**: Activo y funcionando como proxy reverso
-- **Docker**: 3 contenedores corriendo
+- **Nginx**: Activo y funcionando como proxy reverso (recargado 11:03 UTC)
+- **Docker**: 3 contenedores corriendo (19 horas uptime)
 - **SSL**: Certificados Let's Encrypt configurados
 - **Aplicación**: Obratec disponible en producción
+
+### ⚠️ Advertencias Menores
+- **Warning nginx**: "conflicting server name n8n.obratec.app on 0.0.0.0:80, ignored" (no afecta funcionamiento)
 
 ---
 
@@ -49,14 +52,16 @@
 
 ### 🎯 Dominios y Redirecciones
 
+#### ✅ Configuración HTTP → HTTPS Unificada
+- **Todos los dominios** (`obratec.app`, `www.obratec.app`, `n8n.obratec.app`) redirigen automáticamente a HTTPS
+- **Redirección 301**: Configuración optimizada con un solo bloque HTTP
+
 #### Dominio Principal: `obratec.app`
-- **HTTP → HTTPS**: Redirección automática 301
 - **HTTPS**: Proxy reverso a `127.0.0.1:3000` (aplicación principal)
 - **Headers de seguridad**: HSTS, XSS Protection, Content Security
 - **Límite de subida**: 50MB (para archivos de audio)
 
 #### Subdominio N8N: `n8n.obratec.app`
-- **HTTP → HTTPS**: Redirección automática 301
 - **HTTPS**: Proxy reverso a `127.0.0.1:5678` (panel de administración N8N)
 - **Headers específicos**: X-Forwarded-Host, X-Forwarded-Server
 
@@ -85,10 +90,10 @@ proxy_connect_timeout 75s;
 ### 📦 Contenedores Activos
 ```bash
 # Comando para verificar: docker ps
-CONTAINER ID   IMAGE                   PORTS                       NAMES
-3c3bd2d746cb   informe_obra_app        0.0.0.0:3000->3000/tcp     obratec-app
-eb8c0b180e44   n8nio/n8n:latest        127.0.0.1:5678->5678/tcp   obratec-n8n
-2f57e73fa8f3   gotenberg/gotenberg:8   3000/tcp                    obratec-gotenberg
+CONTAINER ID   IMAGE                   PORTS                       NAMES                UPTIME
+3c3bd2d746cb   informe_obra_app        0.0.0.0:3000->3000/tcp     obratec-app         19 horas
+eb8c0b180e44   n8nio/n8n:latest        127.0.0.1:5678->5678/tcp   obratec-n8n         19 horas
+2f57e73fa8f3   gotenberg/gotenberg:8   3000/tcp                    obratec-gotenberg   19 horas
 ```
 
 ### 🔄 Funciones de cada contenedor:
@@ -260,5 +265,12 @@ graph TD
 ---
 
 **Estado del sistema: ✅ OPERATIVO**  
-**Último deployment exitoso:** 19 de agosto de 2025, 16:43 UTC  
-**Próxima revisión programada:** 19 de septiembre de 2025
+**Último deployment exitoso:** 20 de agosto de 2025, 11:03 UTC  
+**Próxima revisión programada:** 20 de septiembre de 2025
+
+### 📋 Últimos Cambios (20/08/2025)
+- ✅ Configuración HTTP unificada para todos los dominios
+- ✅ Eliminación de bloques duplicados en nginx
+- ✅ Script de deploy actualizado con mejoras
+- ✅ Backup automático de configuración anterior
+- ⚠️ Warning menor sobre conflicting server name (no afecta funcionamiento)

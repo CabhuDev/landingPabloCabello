@@ -1,11 +1,9 @@
-version: '3.8'
-
 services:
   web:
     build: .
     container_name: pablo-cabello-web
     ports:
-      - "127.0.0.1:8080:80"   # VPS proxy → Container nginx → Frontend + API
+      - "127.0.0.1:8080:80"   # Puerto 8080 - Proxy desde Nginx VPS configurado
     environment:
       - ENV=production
       - DEBUG=false

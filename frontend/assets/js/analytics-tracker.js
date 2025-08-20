@@ -280,27 +280,24 @@ window.addEventListener('unhandledrejection', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     window.analyticsTracker = new AnalyticsTracker();
     
-    // A/B Test for hero headline
-    const heroVariants = [
-        {
-            name: 'original',
-            headline: 'Reduzco un 40% los costes de construcción mientras garantizo entregas puntuales en retail'
-        },
-        {
-            name: 'urgency',
-            headline: 'Último mes con disponibilidad: Reduzco 40% costes y garantizo entregas puntuales'
-        },
-        {
-            name: 'social_proof',
-            headline: '+20 franquicias confían en mi metodología que reduce 40% costes de construcción'
-        }
-    ];
+    // A/B Test for hero headline - DISABLED
+    // This was causing different H1 content across devices
+    console.log('A/B Testing de headlines desactivado - conflictaba con Service Worker');
     
-    const selectedVariant = window.analyticsTracker.setupABTest('hero_headline', heroVariants);
-    
-    // Apply the selected variant (commented out to maintain current design)
-    // const heroHeadline = document.querySelector('#hero h1');
-    // if (heroHeadline && selectedVariant.name !== 'original') {
-    //     heroHeadline.innerHTML = selectedVariant.headline.replace('40%', '<span class="highlight">40%</span>');
-    // }
+    // Original A/B test code commented out to prevent H1 modifications:
+    // const heroVariants = [
+    //     {
+    //         name: 'original',
+    //         headline: 'Reduzco un 40% los costes de construcción mientras garantizo entregas puntuales en retail'
+    //     },
+    //     {
+    //         name: 'urgency', 
+    //         headline: 'Último mes con disponibilidad: Reduzco 40% costes y garantizo entregas puntuales'
+    //     },
+    //     {
+    //         name: 'social_proof',
+    //         headline: '+20 franquicias confían en mi metodología que reduce 40% costes de construcción'
+    //     }
+    // ];
+    // const selectedVariant = window.analyticsTracker.setupABTest('hero_headline', heroVariants);
 });

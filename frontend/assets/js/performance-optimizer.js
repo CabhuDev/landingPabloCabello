@@ -258,18 +258,9 @@ class PerformanceOptimizer {
     }
 }
 
-// Service Worker para caching (solo en producción)
-if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('sw.js')
-            .then(registration => {
-                console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
-    });
-}
+// Service Worker registration REMOVED - now handled in index.html
+// This was causing conflicts with the main SW registration
+// Service Worker is now properly managed in index.html with cache clearing
 
 // Initialize Performance Optimizer
 document.addEventListener('DOMContentLoaded', () => {

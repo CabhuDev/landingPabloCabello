@@ -322,13 +322,16 @@ class ABTestingFramework {
     }
 }
 
-// Initialize A/B Testing when DOM is ready
+// TEMPORARILY DISABLED: A/B Testing causing H1 content conflicts
+// This was causing different H1 content to appear across devices/browsers
 document.addEventListener('DOMContentLoaded', () => {
-    // Only run A/B tests in production or when explicitly enabled
-    const isProduction = window.location.hostname !== 'localhost';
-    const abTestingEnabled = localStorage.getItem('enable_ab_testing') === 'true';
+    // A/B Testing DISABLED - was modifying H1 content
+    console.log('A/B Testing temporalmente desactivado - conflictaba con caché');
     
-    if (isProduction || abTestingEnabled) {
-        window.abTesting = new ABTestingFramework();
-    }
+    // Uncomment to re-enable when needed:
+    // const isProduction = window.location.hostname !== 'localhost';
+    // const abTestingEnabled = localStorage.getItem('enable_ab_testing') === 'true';
+    // if (isProduction || abTestingEnabled) {
+    //     window.abTesting = new ABTestingFramework();
+    // }
 });

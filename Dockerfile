@@ -26,11 +26,12 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONPATH=/app/backend
 
-# Instalar nginx, supervisor y openssl
+# Instalar nginx, supervisor, openssl y curl
 RUN apt-get update && apt-get install -y \
     nginx \
     supervisor \
     openssl \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Crear usuario no-root

@@ -22,7 +22,7 @@ const STATIC_ASSETS = [
 // Se cachean los assets estáticos y se fuerza la activación del nuevo SW.
 self.addEventListener('install', event => {
     console.log(`[SW ${CACHE_NAME}] Instalando y limpiando cachés...`);
-    
+
     // FORZAR limpieza de TODAS las cachés antes de instalar
     event.waitUntil(
         Promise.all([
@@ -96,7 +96,7 @@ self.addEventListener('fetch', event => {
     }
 
     // ESTRATEGIA 1: Network-First ESTRICTO para HTML (navegación y requests directos)
-    const isHTMLRequest = event.request.mode === 'navigate' || 
+    const isHTMLRequest = event.request.mode === 'navigate' ||
                          event.request.destination === 'document' ||
                          event.request.url.endsWith('/') ||
                          event.request.url.includes('index.html') ||
@@ -152,17 +152,15 @@ self.addEventListener('fetch', event => {
 
 // --- OTROS EVENTOS (Sync, Push, etc.) ---
 // Se mantienen igual que en tu versión anterior.
-self.addEventListener('sync', event => {
-    if (event.tag === 'contact-form-sync') {
-        // Aquí iría la lógica para sincronizar formularios en segundo plano.
-    }
+self.addEventListener('sync', () => {
+    // Aquí iría la lógica para sincronizar formularios en segundo plano.
 });
 
-self.addEventListener('push', event => {
+self.addEventListener('push', () => {
     // Aquí iría la lógica para manejar notificaciones push.
 });
 
-self.addEventListener('notificationclick', event => {
+self.addEventListener('notificationclick', () => {
     // Aquí iría la lógica para clics en notificaciones.
 });
 
@@ -170,7 +168,7 @@ self.addEventListener('message', event => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
         self.skipWaiting();
     }
-    
+
     // Mensaje para forzar limpieza completa
     if (event.data && event.data.type === 'CLEAR_ALL_CACHES') {
         console.log(`[SW ${CACHE_NAME}] Forzando limpieza completa de cachés...`);

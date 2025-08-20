@@ -1,20 +1,15 @@
 /**
- * Service Worker para Pablo Cabello - v1.3.0 - Estrategia Híbrida
+ * Service Worker para Pablo Cabello - v1.4.0 - Cache Invalidation Fix
  *
- * ESTRATEGIA DE CACHÉ:
- * - HTML (Navegación): Network-First. Prioriza el contenido fresco del servidor.
- *   Si hay conexión, el usuario ve siempre lo último. Si está offline, ve la última versión guardada.
- *   Esto soluciona el problema de la caché "atrapada".
+ * ESTRATEGIA DE CACHÉ CORREGIDA:
+ * - HTML: NUNCA se cachea como asset estático, solo Network-First con fallback
  * - ASSETS (CSS, JS, Imágenes): Cache-First. Prioriza la velocidad de carga.
- *   Sirve desde la caché para máxima performance y recurre a la red si no lo encuentra.
+ * - Invalidación agresiva: limpia completamente cachés antiguas al actualizar
  */
 
-const CACHE_NAME = 'pablo-cabello-v1.3.0';
+const CACHE_NAME = 'pablo-cabello-v1.4.0';
 const STATIC_ASSETS = [
-    // Se cachea la página principal para el modo offline
-    '/',
-    '/index.html',
-    // Assets estáticos
+    // NUNCA cachear HTML como asset estático - solo assets reales
     '/assets/css/style.css',
     '/assets/js/events.js',
     '/assets/js/form-handler.js',
@@ -26,40 +21,68 @@ const STATIC_ASSETS = [
 // --- 1. Evento de Instalación ---
 // Se cachean los assets estáticos y se fuerza la activación del nuevo SW.
 self.addEventListener('install', event => {
-    console.log(`[SW ${CACHE_NAME}] Instalando...`);
+    console.log(`[SW ${CACHE_NAME}] Instalando y limpiando cachés...`);
+    
+    // FORZAR limpieza de TODAS las cachés antes de instalar
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(cache => {
+        Promise.all([
+            // Primero eliminar TODAS las cachés existentes
+            caches.keys().then(cacheNames => {
+                console.log(`[SW ${CACHE_NAME}] Eliminando cachés existentes:`, cacheNames);
+                return Promise.all(
+                    cacheNames.map(cacheName => {
+                        console.log(`[SW ${CACHE_NAME}] Eliminando caché: ${cacheName}`);
+                        return caches.delete(cacheName);
+                    })
+                );
+            }),
+            // Luego cachear nuevos assets
+            caches.open(CACHE_NAME).then(cache => {
                 console.log(`[SW ${CACHE_NAME}] Cacheando assets estáticos.`);
                 return cache.addAll(STATIC_ASSETS);
             })
-            .then(() => {
-                // Forza al nuevo Service Worker a activarse en cuanto termina la instalación.
-                console.log(`[SW ${CACHE_NAME}] Instalación completa. Saltando espera.`);
-                return self.skipWaiting();
-            })
+        ]).then(() => {
+            // Forza al nuevo Service Worker a activarse inmediatamente
+            console.log(`[SW ${CACHE_NAME}] Instalación completa. Saltando espera.`);
+            return self.skipWaiting();
+        })
     );
 });
 
 // --- 2. Evento de Activación ---
-// Se eliminan las cachés antiguas y el nuevo SW toma control inmediato de la página.
+// Limpieza agresiva y control inmediato
 self.addEventListener('activate', event => {
-    console.log(`[SW ${CACHE_NAME}] Activando...`);
+    console.log(`[SW ${CACHE_NAME}] Activando y tomando control...`);
     event.waitUntil(
-        caches.keys().then(cacheNames => {
-            return Promise.all(
-                cacheNames.map(cacheName => {
-                    // Si el nombre de la caché no es el actual, se elimina.
-                    if (cacheName !== CACHE_NAME) {
-                        console.log(`[SW ${CACHE_NAME}] Eliminando caché antigua: ${cacheName}`);
+        Promise.all([
+            // Limpiar TODAS las cachés (incluso la actual por si acaso)
+            caches.keys().then(cacheNames => {
+                console.log(`[SW ${CACHE_NAME}] Limpiando TODAS las cachés:`, cacheNames);
+                return Promise.all(
+                    cacheNames.map(cacheName => {
+                        console.log(`[SW ${CACHE_NAME}] Forzando eliminación: ${cacheName}`);
                         return caches.delete(cacheName);
-                    }
-                })
-            );
-        }).then(() => {
-            // Toma control de todos los clientes (pestañas) abiertos.
-            console.log(`[SW ${CACHE_NAME}] Activado y controlando clientes.`);
-            return self.clients.claim();
+                    })
+                );
+            }),
+            // Recrear solo la caché nueva con assets
+            caches.open(CACHE_NAME).then(cache => {
+                console.log(`[SW ${CACHE_NAME}] Recreando caché con assets.`);
+                return cache.addAll(STATIC_ASSETS);
+            })
+        ]).then(() => {
+            // Toma control inmediato y fuerza reload de clientes
+            console.log(`[SW ${CACHE_NAME}] Activado. Recargando clientes...`);
+            return self.clients.claim().then(() => {
+                // Recargar todas las pestañas abiertas
+                return self.clients.matchAll().then(clients => {
+                    clients.forEach(client => {
+                        if (client.url && client.navigate) {
+                            client.navigate(client.url);
+                        }
+                    });
+                });
+            });
         })
     );
 });
@@ -72,25 +95,38 @@ self.addEventListener('fetch', event => {
         return;
     }
 
-    // ESTRATEGIA 1: Network-First para peticiones de navegación (HTML)
-    if (event.request.mode === 'navigate') {
+    // ESTRATEGIA 1: Network-First ESTRICTO para HTML (navegación y requests directos)
+    const isHTMLRequest = event.request.mode === 'navigate' || 
+                         event.request.destination === 'document' ||
+                         event.request.url.endsWith('/') ||
+                         event.request.url.includes('index.html') ||
+                         event.request.headers.get('accept')?.includes('text/html');
+
+    if (isHTMLRequest) {
+        console.log(`[SW ${CACHE_NAME}] HTML Request detected:`, event.request.url);
         event.respondWith(
-            fetch(event.request)
+            fetch(event.request, { cache: 'no-cache' })
                 .then(response => {
-                    // Si la petición a la red funciona, cacheamos la nueva versión y la devolvemos.
-                    const responseClone = response.clone();
-                    caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request, responseClone);
-                    });
+                    console.log(`[SW ${CACHE_NAME}] Fresh HTML from network:`, event.request.url);
+                    // NO cachear HTML - solo devolverlo
                     return response;
                 })
                 .catch(() => {
-                    // Si la red falla, devolvemos el fallback desde la caché (modo offline).
-                    console.log(`[SW ${CACHE_NAME}] Red falló. Sirviendo ${event.request.url} desde caché.`);
-                    return caches.match(event.request);
+                    // Solo si la red falla completamente, buscar en caché
+                    console.log(`[SW ${CACHE_NAME}] Network failed. Trying cache for:`, event.request.url);
+                    return caches.match(event.request).then(cached => {
+                        if (cached) {
+                            console.log(`[SW ${CACHE_NAME}] Serving cached fallback`);
+                            return cached;
+                        }
+                        // Si no hay caché, devolver página de error básica
+                        return new Response('<h1>Sin conexión</h1><p>No se puede cargar la página</p>', {
+                            headers: { 'Content-Type': 'text/html' }
+                        });
+                    });
                 })
         );
-        return; // Importante: termina la ejecución aquí para peticiones de navegación.
+        return;
     }
 
     // ESTRATEGIA 2: Cache-First para assets estáticos (CSS, JS, imágenes)
@@ -133,5 +169,28 @@ self.addEventListener('notificationclick', event => {
 self.addEventListener('message', event => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
         self.skipWaiting();
+    }
+    
+    // Mensaje para forzar limpieza completa
+    if (event.data && event.data.type === 'CLEAR_ALL_CACHES') {
+        console.log(`[SW ${CACHE_NAME}] Forzando limpieza completa de cachés...`);
+        event.waitUntil(
+            caches.keys().then(cacheNames => {
+                return Promise.all(
+                    cacheNames.map(cacheName => {
+                        console.log(`[SW ${CACHE_NAME}] Eliminando: ${cacheName}`);
+                        return caches.delete(cacheName);
+                    })
+                );
+            }).then(() => {
+                console.log(`[SW ${CACHE_NAME}] Todas las cachés eliminadas`);
+                // Recargar cliente
+                self.clients.matchAll().then(clients => {
+                    clients.forEach(client => {
+                        client.postMessage({ type: 'CACHES_CLEARED' });
+                    });
+                });
+            })
+        );
     }
 });

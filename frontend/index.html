@@ -174,6 +174,88 @@
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
     
+    <!-- Service Worker Registration -->
+    <script>
+        // Registro agresivo del Service Worker con limpieza forzada
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    console.log('🔄 Iniciando registro de Service Worker...');
+                    
+                    // Desregistrar TODOS los service workers existentes
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    console.log(`🗑️ Encontrados ${registrations.length} SW existentes. Limpiando...`);
+                    
+                    for (let registration of registrations) {
+                        console.log('🗑️ Desregistrando SW:', registration.scope);
+                        await registration.unregister();
+                    }
+                    
+                    // Limpiar todas las cachés del navegador
+                    if ('caches' in window) {
+                        const cacheNames = await caches.keys();
+                        console.log(`🗑️ Limpiando ${cacheNames.length} cachés:`, cacheNames);
+                        await Promise.all(cacheNames.map(name => caches.delete(name)));
+                    }
+                    
+                    // Registrar el nuevo Service Worker
+                    console.log('✅ Registrando nuevo Service Worker...');
+                    const registration = await navigator.serviceWorker.register('/sw.js', {
+                        scope: '/',
+                        updateViaCache: 'none' // Nunca cachear el SW
+                    });
+                    
+                    console.log('✅ Service Worker registrado:', registration);
+                    
+                    // Manejar actualizaciones
+                    registration.addEventListener('updatefound', () => {
+                        console.log('🔄 Nueva versión del SW disponible');
+                        const newWorker = registration.installing;
+                        
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('🔄 Activando nueva versión...');
+                                newWorker.postMessage({ type: 'SKIP_WAITING' });
+                            }
+                        });
+                    });
+                    
+                    // Escuchar cambios en el controlador
+                    navigator.serviceWorker.addEventListener('controllerchange', () => {
+                        console.log('🔄 Nuevo SW tomó control. Recargando...');
+                        window.location.reload();
+                    });
+                    
+                    // Verificar si hay una nueva versión cada 30 segundos
+                    setInterval(() => {
+                        registration.update();
+                    }, 30000);
+                    
+                } catch (error) {
+                    console.error('❌ Error registrando Service Worker:', error);
+                }
+            });
+        } else {
+            console.log('❌ Service Worker no soportado');
+        }
+        
+        // Función para forzar limpieza completa (desarrollo/debug)
+        window.clearAllCaches = async () => {
+            console.log('🗑️ LIMPIEZA FORZADA - Eliminando todo...');
+            
+            // Desregistrar SWs
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(registrations.map(reg => reg.unregister()));
+            
+            // Limpiar cachés
+            const cacheNames = await caches.keys();
+            await Promise.all(cacheNames.map(name => caches.delete(name)));
+            
+            // Recargar
+            window.location.reload(true);
+        };
+    </script>
+
     <!-- JavaScript -->
     <script src="assets/js/events.js" defer></script>
     <script src="assets/js/form-handler.js" defer></script>

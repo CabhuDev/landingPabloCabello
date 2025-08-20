@@ -3,7 +3,7 @@
  * Caching estratégico para mejor performance
  */
 
-const CACHE_NAME = 'pablo-cabello-v1.1.0';
+const CACHE_NAME = 'pablo-cabello-v1.2.0';
 const CACHE_ASSETS = [
     '/',
     '/index.html',

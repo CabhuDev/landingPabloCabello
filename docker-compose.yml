@@ -5,8 +5,8 @@ services:
     build: .
     container_name: pablo-cabello-web
     ports:
-      - "8080:80"     # Puerto 8080 para evitar conflicto con obratec.app
-      - "8443:443"    # Puerto 8443 para HTTPS (si se necesita)
+      - "127.0.0.1:8080:80"   # Solo localhost - puerto HTTP
+      - "127.0.0.1:8443:443"  # Solo localhost - puerto HTTPS
     environment:
       - ENV=production
       - DEBUG=false

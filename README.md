@@ -50,10 +50,37 @@
 ├── 📄 CLAUDE.md                    # Instrucciones de desarrollo
 ├── 📄 Dockerfile                   # Imagen Docker multi-stage
 ├── 📄 docker-compose.yml           # Orquestación Docker
-├── 📄 docker-build.sh              # Script construcción (wrapper)
-├── 📄 docker-deploy.sh             # Script despliegue (wrapper)
-├── 📄 dev-server.bat               # Desarrollo Windows (batch)
-├── 📄 dev-server.ps1               # Desarrollo Windows (PowerShell)
+├── 📄 eslint.config.js            # Configuración ESLint
+├── 📄 package.json                 # Dependencias Node.js
+│
+├── 📁 docs/                        # 📚 Documentación centralizada
+│   ├── 📄 DOCKER-STATUS.md         # Estado despliegue Docker
+│   ├── 📄 ESTADO_NGINX_VPS.md      # Estado configuración VPS
+│   ├── 📄 GEMINI.md                # Instrucciones para Gemini AI
+│   ├── 📄 guiaEstilos.md           # Guía de diseño premium
+│   ├── 📄 METRICAS-IMPLEMENTACION.md # Guía completa métricas
+│   ├── 📄 pablocabello.md          # Plan técnico detallado
+│   ├── 📄 README-Docker.md         # Documentación Docker completa
+│   └── 📁 deployment/
+│       └── 📄 DEPLOY-VPS.md        # Guía de despliegue VPS
+│
+├── 📁 scripts/                     # 🔧 Scripts desarrollo/despliegue
+│   ├── 📄 add-pablocabello-nginx.sh # Configuración nginx específica
+│   ├── 📄 build.sh                 # Script construcción
+│   ├── 📄 deploy.sh                # Script despliegue
+│   ├── 📄 dev-server.ps1           # Desarrollo Windows (PowerShell)
+│   ├── 📄 docker-build.sh          # Construcción Docker
+│   ├── 📄 docker-deploy.sh         # Despliegue Docker
+│   ├── 📄 docker-local.ps1         # Docker local Windows
+│   ├── 📄 generate-certs.sh        # Generación certificados SSL
+│   ├── 📄 start.sh                 # Inicio contenedor
+│   └── 📄 vps-setup.sh             # Configuración inicial VPS
+│
+├── 📁 config/                      # ⚙️ Configuraciones
+│   ├── 📄 supervisord.conf         # Gestión de procesos
+│   └── 📁 nginx/
+│       ├── 📄 nginx.conf           # Configuración Nginx principal
+│       └── 📄 nginx-vps-config.conf # Configuración VPS específica
 │
 ├── 🎨 frontend/                    # Web premium optimizada
 │   ├── 📄 index.html              # Landing page con structured data
@@ -83,15 +110,13 @@
 │   ├── 📁 tests/
 │   │   └── 📄 test_main.py         # Tests automatizados
 │   │
-│   └── 📄 requirements.txt         # Dependencias Python
+│   ├── 📄 credentials.json         # Credenciales de servicios
+│   ├── 📄 requirements.txt         # Dependencias Python
+│   └── 📄 requirements.in          # Dependencias sin versiones
 │
-└── 🐳 docker/                      # Configuración Docker
-    ├── 📄 README-Docker.md         # Documentación Docker completa
-    ├── 📄 build.sh                 # Script de construcción
-    ├── 📄 deploy.sh                # Script de despliegue  
-    ├── 📄 start.sh                 # Script inicio contenedor
-    ├── 📄 nginx.conf               # Configuración Nginx
-    └── 📄 supervisord.conf         # Gestión de procesos
+├── 📁 data/                        # 💾 Datos aplicación
+├── 📁 logs/                        # 📋 Logs del sistema
+└── 📁 node_modules/               # 📦 Dependencias Node.js
 ```
 
 ---
@@ -189,11 +214,11 @@
 
 #### **Opción 1: Scripts automatizados (recomendado)**
 ```bash
-# Windows (Batch)
-./dev-server.bat
-
 # Windows (PowerShell)
-./dev-server.ps1
+./scripts/dev-server.ps1
+
+# Docker local (Windows)
+./scripts/docker-local.ps1
 ```
 
 Los scripts automáticamente:
@@ -217,7 +242,7 @@ npx serve . --cors
 
 #### **Construcción:**
 ```bash
-./docker-build.sh [tag]
+./scripts/docker-build.sh [tag]
 ```
 
 #### **Desarrollo con Docker:**
@@ -227,10 +252,10 @@ docker-compose up -d
 
 #### **Producción:**
 ```bash
-./docker-deploy.sh
+./scripts/docker-deploy.sh
 ```
 
-> 📖 **Documentación completa Docker:** [docker/README-Docker.md](docker/README-Docker.md)
+> 📖 **Documentación completa Docker:** [docs/README-Docker.md](docs/README-Docker.md)
 
 ### **📊 Configuración de Métricas:**
 
@@ -250,7 +275,7 @@ docker-compose up -d
 localStorage.setItem('enable_ab_testing', 'true');
 ```
 
-Ver guía completa en → **[METRICAS-IMPLEMENTACION.md](METRICAS-IMPLEMENTACION.md)**
+Ver guía completa en → **[docs/METRICAS-IMPLEMENTACION.md](docs/METRICAS-IMPLEMENTACION.md)**
 
 ---
 
@@ -297,9 +322,10 @@ docs: update metrics implementation guide
 | Archivo | Descripción |
 |---------|-------------|
 | **[CLAUDE.md](CLAUDE.md)** | Contexto de desarrollo + instrucciones |
-| **[METRICAS-IMPLEMENTACION.md](METRICAS-IMPLEMENTACION.md)** | Guía completa de métricas en producción |
-| **[pablocabello.md](pablocabello.md)** | Plan técnico y arquitectura detallada |
-| **[guiaEstilos.md](guiaEstilos.md)** | Guía de diseño premium actualizada |
+| **[docs/METRICAS-IMPLEMENTACION.md](docs/METRICAS-IMPLEMENTACION.md)** | Guía completa de métricas en producción |
+| **[docs/pablocabello.md](docs/pablocabello.md)** | Plan técnico y arquitectura detallada |
+| **[docs/guiaEstilos.md](docs/guiaEstilos.md)** | Guía de diseño premium actualizada |
+| **[docs/deployment/DEPLOY-VPS.md](docs/deployment/DEPLOY-VPS.md)** | Guía completa de despliegue en VPS |
 
 ---
 

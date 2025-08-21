@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Limpiar Service Workers - Pablo Cabello</title>
+</head>
+<body>
+    <h1>Limpieza de Service Workers</h1>
+    <p>Esta página ayuda a limpiar service workers problemáticos.</p>
+    
+    <button onclick="clearServiceWorkers()">Limpiar todos los Service Workers</button>
+    <button onclick="clearCaches()">Limpiar todas las Cachés</button>
+    <button onclick="clearAll()">Limpiar Todo y Recargar</button>
+    
+    <div id="status"></div>
+    
+    <script>
+        const status = document.getElementById('status');
+        
+        async function clearServiceWorkers() {
+            try {
+                status.innerHTML = '🔄 Limpiando Service Workers...';
+                
+                const registrations = await navigator.serviceWorker.getRegistrations();
+                console.log(`Encontrados ${registrations.length} Service Workers`);
+                
+                await Promise.all(registrations.map(reg => {
+                    console.log('Desregistrando:', reg.scope);
+                    return reg.unregister();
+                }));
+                
+                status.innerHTML = '✅ Service Workers limpiados';
+            } catch (error) {
+                status.innerHTML = '❌ Error: ' + error.message;
+                console.error(error);
+            }
+        }
+        
+        async function clearCaches() {
+            try {
+                status.innerHTML = '🔄 Limpiando Cachés...';
+                
+                const cacheNames = await caches.keys();
+                console.log(`Encontradas ${cacheNames.length} cachés`);
+                
+                await Promise.all(cacheNames.map(name => {
+                    console.log('Eliminando caché:', name);
+                    return caches.delete(name);
+                }));
+                
+                status.innerHTML = '✅ Cachés limpiadas';
+            } catch (error) {
+                status.innerHTML = '❌ Error: ' + error.message;
+                console.error(error);
+            }
+        }
+        
+        async function clearAll() {
+            status.innerHTML = '🔄 Limpiando todo...';
+            
+            await clearServiceWorkers();
+            await clearCaches();
+            
+            status.innerHTML = '✅ Todo limpiado. Redirigiendo...';
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

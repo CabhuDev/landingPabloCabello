@@ -1,13 +1,13 @@
 /**
- * Service Worker para Pablo Cabello - v1.4.0 - Cache Invalidation Fix
+ * Service Worker para Pablo Cabello - v1.5.0 - Mobile Reload Fix
  *
- * ESTRATEGIA DE CACHÉ CORREGIDA:
- * - HTML: NUNCA se cachea como asset estático, solo Network-First con fallback
- * - ASSETS (CSS, JS, Imágenes): Cache-First. Prioriza la velocidad de carga.
- * - Invalidación agresiva: limpia completamente cachés antiguas al actualizar
+ * ESTRATEGIA DE CACHÉ ESTABLE:
+ * - HTML: Network-First con fallback a cache
+ * - ASSETS (CSS, JS, Imágenes): Cache-First para velocidad
+ * - Sin recarga automática de clientes para evitar bucles
  */
 
-const CACHE_NAME = 'pablo-cabello-v1.4.0';
+const CACHE_NAME = 'pablo-cabello-v1.5.0';
 const STATIC_ASSETS = [
     // NUNCA cachear HTML como asset estático - solo assets reales
     '/assets/css/style.css',
@@ -19,70 +19,39 @@ const STATIC_ASSETS = [
 ];
 
 // --- 1. Evento de Instalación ---
-// Se cachean los assets estáticos y se fuerza la activación del nuevo SW.
 self.addEventListener('install', event => {
-    console.log(`[SW ${CACHE_NAME}] Instalando y limpiando cachés...`);
-
-    // FORZAR limpieza de TODAS las cachés antes de instalar
+    console.log(`[SW ${CACHE_NAME}] Instalando...`);
+    
     event.waitUntil(
-        Promise.all([
-            // Primero eliminar TODAS las cachés existentes
-            caches.keys().then(cacheNames => {
-                console.log(`[SW ${CACHE_NAME}] Eliminando cachés existentes:`, cacheNames);
-                return Promise.all(
-                    cacheNames.map(cacheName => {
-                        console.log(`[SW ${CACHE_NAME}] Eliminando caché: ${cacheName}`);
-                        return caches.delete(cacheName);
-                    })
-                );
-            }),
-            // Luego cachear nuevos assets
-            caches.open(CACHE_NAME).then(cache => {
-                console.log(`[SW ${CACHE_NAME}] Cacheando assets estáticos.`);
-                return cache.addAll(STATIC_ASSETS);
-            })
-        ]).then(() => {
-            // Forza al nuevo Service Worker a activarse inmediatamente
-            console.log(`[SW ${CACHE_NAME}] Instalación completa. Saltando espera.`);
-            return self.skipWaiting();
+        caches.open(CACHE_NAME).then(cache => {
+            console.log(`[SW ${CACHE_NAME}] Cacheando assets estáticos.`);
+            return cache.addAll(STATIC_ASSETS);
+        }).then(() => {
+            console.log(`[SW ${CACHE_NAME}] Instalación completa.`);
+            // NO saltamos la espera para evitar recargas automáticas
         })
     );
 });
 
 // --- 2. Evento de Activación ---
-// Limpieza agresiva y control inmediato
 self.addEventListener('activate', event => {
-    console.log(`[SW ${CACHE_NAME}] Activando y tomando control...`);
+    console.log(`[SW ${CACHE_NAME}] Activando...`);
     event.waitUntil(
-        Promise.all([
-            // Limpiar TODAS las cachés (incluso la actual por si acaso)
-            caches.keys().then(cacheNames => {
-                console.log(`[SW ${CACHE_NAME}] Limpiando TODAS las cachés:`, cacheNames);
-                return Promise.all(
-                    cacheNames.map(cacheName => {
-                        console.log(`[SW ${CACHE_NAME}] Forzando eliminación: ${cacheName}`);
+        caches.keys().then(cacheNames => {
+            console.log(`[SW ${CACHE_NAME}] Limpiando cachés antiguas:`, cacheNames);
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    // Solo eliminar cachés de versiones anteriores
+                    if (cacheName !== CACHE_NAME) {
+                        console.log(`[SW ${CACHE_NAME}] Eliminando caché antigua: ${cacheName}`);
                         return caches.delete(cacheName);
-                    })
-                );
-            }),
-            // Recrear solo la caché nueva con assets
-            caches.open(CACHE_NAME).then(cache => {
-                console.log(`[SW ${CACHE_NAME}] Recreando caché con assets.`);
-                return cache.addAll(STATIC_ASSETS);
-            })
-        ]).then(() => {
-            // Toma control inmediato y fuerza reload de clientes
-            console.log(`[SW ${CACHE_NAME}] Activado. Recargando clientes...`);
-            return self.clients.claim().then(() => {
-                // Recargar todas las pestañas abiertas
-                return self.clients.matchAll().then(clients => {
-                    clients.forEach(client => {
-                        if (client.url && client.navigate) {
-                            client.navigate(client.url);
-                        }
-                    });
-                });
-            });
+                    }
+                })
+            );
+        }).then(() => {
+            console.log(`[SW ${CACHE_NAME}] Activado correctamente.`);
+            // Tomar control pero SIN recargar clientes
+            return self.clients.claim();
         })
     );
 });
@@ -166,29 +135,7 @@ self.addEventListener('notificationclick', () => {
 
 self.addEventListener('message', event => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
+        console.log(`[SW ${CACHE_NAME}] Saltando espera por petición del cliente`);
         self.skipWaiting();
-    }
-
-    // Mensaje para forzar limpieza completa
-    if (event.data && event.data.type === 'CLEAR_ALL_CACHES') {
-        console.log(`[SW ${CACHE_NAME}] Forzando limpieza completa de cachés...`);
-        event.waitUntil(
-            caches.keys().then(cacheNames => {
-                return Promise.all(
-                    cacheNames.map(cacheName => {
-                        console.log(`[SW ${CACHE_NAME}] Eliminando: ${cacheName}`);
-                        return caches.delete(cacheName);
-                    })
-                );
-            }).then(() => {
-                console.log(`[SW ${CACHE_NAME}] Todas las cachés eliminadas`);
-                // Recargar cliente
-                self.clients.matchAll().then(clients => {
-                    clients.forEach(client => {
-                        client.postMessage({ type: 'CACHES_CLEARED' });
-                    });
-                });
-            })
-        );
     }
 });

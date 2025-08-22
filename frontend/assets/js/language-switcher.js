@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         elementsToTranslate.forEach(element => {
             const text = element.getAttribute(`data-lang-${lang}`);
             if (text) {
-                element.textContent = text;
+                element.innerHTML = text;
             }
         });
 

@@ -1979,6 +1979,7 @@ select:focus-visible {
     line-height: 1.6;
 }
 
+
 /* Testimonio de cierre */
 .testimonial-closing {
     text-align: center;
@@ -1998,10 +1999,39 @@ select:focus-visible {
     position: absolute;
     top: 1rem;
     left: 2rem;
-    font-size: 6rem;
-    color: var(--color-secondary-cta);
-    font-family: Georgia, serif;
-    opacity: 0.3;
+}
+
+/* --- Language Switcher --- */
+.language-switcher {
+    display: flex;
+    gap: 0.5rem;
+    background-color: var(--color-neutral-200);
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+}
+
+.language-switcher button {
+    background-color: transparent;
+    border: none;
+    color: var(--color-neutral-600);
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-weight: var(--fw-semibold);
+    font-size: 1.4rem;
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s ease;
+}
+
+.language-switcher button:hover {
+    background-color: var(--color-neutral-300);
+    color: var(--color-primary);
+}
+
+.language-switcher button.active {
+    background-color: var(--color-base);
+    color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
 }
 
 .testimonial-closing blockquote {

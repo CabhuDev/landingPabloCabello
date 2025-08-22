@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <title>Pablo Cabello - Gestor de Proyectos Retail y Aparejador</title>
+    <title>Pablo Cabello - Arquitecto técnico</title>
     <meta name="description" content="Especialista en la gestión y ejecución de obras de retail. Optimizo la eficiencia y el cumplimiento de plazos en proyectos comerciales.">
-    
+
+
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     
@@ -41,11 +42,34 @@
     {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
-        "name": "Pablo Cabello - Aparejador Especialista en Retail",
-        "description": "Arquitecto Técnico Colegiado especializado en gestión metodológica y ejecución de obras para franquicias y retail. Garantizo 100% entregas a tiempo con documentación completa.",
+        "inLanguage": ["es", "en"],
+        "name": [
+            { "@language": "es", "@value": "Pablo Cabello - Arquitecto Técnico Especialista en Retail" },
+            { "@language": "en", "@value": "Pablo Cabello - Retail Specialist Technical Architect" }
+        ],
+        "alternateName": [
+            { "@language": "es", "@value": "Pablo Cabello Aparejador" },
+            { "@language": "en", "@value": "Pablo Cabello Technical Architect" },
+            { "@language": "es", "@value": "Aparejador Granada Retail" }
+        ],
+        "description": [
+            { "@language": "es", "@value": "Arquitecto Técnico Colegiado con 10+ años de experiencia especializado en aperturas retail y franquicias. Metodología propia Obratec para entregas a tiempo con licencias tramitadas y CEE en 36-72h." },
+            { "@language": "en", "@value": "Chartered Technical Architect with 10+ years of experience specializing in retail openings and franchises. Proprietary Obratec methodology for on-time deliveries with processed licenses and EEC in 36-72h." }
+        ],
         "url": "https://pablocabello.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/pablo-cabello-hurtado",
+            "https://obratec.es"
+        ],
         "telephone": "+34-600-518-588",
         "email": "pablo.cabello.hurtado@gmail.com",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+34-600-518-588",
+            "contactType": "customer service",
+            "areaServed": "ES",
+            "availableLanguage": ["Spanish", "English"]
+        },
         "address": {
             "@type": "PostalAddress",
             "addressRegion": "Andalucía",
@@ -61,30 +85,103 @@
         "founder": {
             "@type": "Person",
             "name": "Pablo Cabello Hurtado",
-            "jobTitle": "Arquitecto Técnico",
-            "alumniOf": "Universidad de Granada",
+            "jobTitle": [
+                { "@language": "es", "@value": "Arquitecto Técnico y Desarrollador" },
+                { "@language": "en", "@value": "Technical Architect and Developer" }
+            ],
+            "alumniOf": [
+                {
+                    "@type": "CollegeOrUniversity",
+                    "name": "Universidad de Granada"
+                }
+            ],
             "hasCredential": [
                 {
                     "@type": "EducationalOccupationalCredential",
                     "credentialCategory": "Professional License",
-                    "name": "Arquitecto Técnico Colegiado",
+                    "name": [
+                        { "@language": "es", "@value": "Arquitecto Técnico Colegiado" },
+                        { "@language": "en", "@value": "Chartered Technical Architect" }
+                    ],
                     "issuedBy": "Colegio de Aparejadores de Granada",
-                    "credentialId": "90533"
+                    "credentialId": "90533",
+                    "dateCreated": "2013"
+                }
+            ],
+            "hasOccupation": [
+                {
+                    "@type": "Occupation",
+                    "name": "Arquitecto Técnico",
+                    "occupationLocation": "Granada, España",
+                    "estimatedSalary": {
+                        "@type": "MonetaryAmountDistribution",
+                        "currency": "EUR",
+                        "duration": "P1Y"
+                    }
                 }
             ]
         },
         "serviceType": [
-            "Gestión de Proyectos de Construcción",
-            "Supervisión de Obras",
-            "Coordinación de Proveedores",
-            "Optimización de Recursos"
+            { "@language": "es", "@value": "Aperturas Retail sin Sobresaltos" },
+            { "@language": "en", "@value": "Smooth Retail Openings" },
+            { "@language": "es", "@value": "Certificados Energéticos (CEE) 36-72h" },
+            { "@language": "en", "@value": "Energy Performance Certificates (EPC) 36-72h" },
+            { "@language": "es", "@value": "Gestión de Licencias y Permisos" },
+            { "@language": "en", "@value": "License and Permit Management" },
+            { "@language": "es", "@value": "Dirección y Supervisión de Obras" },
+            { "@language": "en", "@value": "Construction Management and Supervision" },
+            { "@language": "es", "@value": "Coordinación de Proveedores" },
+            { "@language": "en", "@value": "Supplier Coordination" },
+            { "@language": "es", "@value": "Metodología Obratec" },
+            { "@language": "en", "@value": "Obratec Methodology" }
         ],
-        "areaServed": ["Granada", "Córdoba", "Sevilla", "Málaga","Jaén","Almería","España"],
+        "areaServed": [
+            {
+                "@type": "City",
+                "name": "Granada"
+            },
+            {
+                "@type": "City", 
+                "name": "Córdoba"
+            },
+            {
+                "@type": "City",
+                "name": "Sevilla"
+            },
+            {
+                "@type": "City",
+                "name": "Málaga"
+            },
+            {
+                "@type": "City",
+                "name": "Jaén"
+            },
+            {
+                "@type": "City",
+                "name": "Almería"
+            },
+            {
+                "@type": "Country",
+                "name": "España"
+            }
+        ],
         "priceRange": "€€€",
+        "knowsAbout": [
+            "Arquitectura Técnica",
+            "Retail Construction",
+            "Franchise Development", 
+            "Energy Performance Certificates",
+            "Construction Project Management",
+            "Building Permits",
+            "Construction Supervision",
+            "Quality Control",
+            "Obratec Methodology",
+            "Web Development"
+        ],
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5.0",
-            "reviewCount": "25",
+            "reviewCount": "50",
             "bestRating": "5",
             "worstRating": "5"
         },
@@ -93,47 +190,150 @@
                 "@type": "Review",
                 "author": {
                     "@type": "Person",
-                    "name": "María González"
+                    "name": "María González - LlaoLlao"
                 },
                 "reviewRating": {
                     "@type": "Rating",
                     "ratingValue": "5"
                 },
-                "reviewBody": "Pablo redujo nuestros tiempos de apertura en un 35% y mantuvo el presupuesto exacto. Su coordinación con proveedores es excepcional."
+                "reviewBody": [
+                    { "@language": "es", "@value": "Pablo gestionó nuestra apertura en Gran Vía Granada cumpliendo todas las exigencias sanitarias. CEE emitido en 24h y obra finalizada sin retrasos." },
+                    { "@language": "en", "@value": "Pablo managed our opening in Gran Vía Granada meeting all sanitary requirements. EPC issued in 24h and construction completed without delays." }
+                ],
+                "datePublished": "2024"
+            },
+            {
+                "@type": "Review", 
+                "author": {
+                    "@type": "Person",
+                    "name": "Director Clínica Baviera"
+                },
+                "reviewRating": {
+                    "@type": "Rating",
+                    "ratingValue": "5"
+                },
+                "reviewBody": [
+                    { "@language": "es", "@value": "Desarrollo integral de nuestra clínica en Vélez-Málaga. Gestión completa desde demolición hasta acabados especializados. Cero retrabajos." },
+                    { "@language": "en", "@value": "Comprehensive development of our clinic in Vélez-Málaga. Complete management from demolition to specialized finishes. Zero rework." }
+                ],
+                "datePublished": "2024"
+            }
+        ],
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": [
+                    { "@language": "es", "@value": "Apertura Retail Completa" },
+                    { "@language": "en", "@value": "Complete Retail Opening" }
+                ],
+                "description": [
+                    { "@language": "es", "@value": "Proyecto completo de apertura, CEE en 36-72h, gestión de obra y reportes Obratec en tiempo real" },
+                    { "@language": "en", "@value": "Complete opening project, EPC in 36-72h, construction management and real-time Obratec reports" }
+                ],
+                "category": "Construction Services"
+            },
+            {
+                "@type": "Offer", 
+                "name": [
+                    { "@language": "es", "@value": "Certificado Energético Express" },
+                    { "@language": "en", "@value": "Express Energy Certificate" }
+                ],
+                "description": [
+                    { "@language": "es", "@value": "CEE en 24-48h con visita, toma de datos, emisión y registro autonómico incluido" },
+                    { "@language": "en", "@value": "EPC in 24-48h with visit, data collection, issuance and regional registration included" }
+                ],
+                "category": "Energy Certification"
+            },
+            {
+                "@type": "Offer",
+                "name": [
+                    { "@language": "es", "@value": "Gestión de Licencias" },
+                    { "@language": "en", "@value": "License Management" }
+                ],
+                "description": [
+                    { "@language": "es", "@value": "Comunicación con ayuntamiento y documentación completa con Obratec Forms" },
+                    { "@language": "en", "@value": "Communication with city council and complete documentation with Obratec Forms" }
+                ],
+                "category": "Administrative Services"
             }
         ],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Servicios de Aparejador para Retail",
+            "name": [
+                { "@language": "es", "@value": "Servicios de Aparejador para Retail y Franquicias" },
+                { "@language": "en", "@value": "Technical Architect Services for Retail and Franchises" }
+            ],
             "itemListElement": [
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Metodología de gestión documentada",
-                        "description": "Coordinación completa con documentación en cada fase"
+                        "name": [
+                            { "@language": "es", "@value": "Metodología Obratec Documentada" },
+                            { "@language": "en", "@value": "Documented Obratec Methodology" }
+                        ],
+                        "description": [
+                            { "@language": "es", "@value": "Sistema documentado de gestión con reportes en tiempo real y coordinación completa" },
+                            { "@language": "en", "@value": "Documented management system with real-time reports and complete coordination" }
+                        ]
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
-                        "@type": "Service",
-                        "name": "Supervisión que previene retrasos",
-                        "description": "100% entregas a tiempo en 50+ proyectos"
+                        "@type": "Service", 
+                        "name": [
+                            { "@language": "es", "@value": "Entregas 100% a Tiempo" },
+                            { "@language": "en", "@value": "100% On-Time Deliveries" }
+                        ],
+                        "description": [
+                            { "@language": "es", "@value": "100% entregas a tiempo en 50+ proyectos con metodología probada" },
+                            { "@language": "en", "@value": "100% on-time deliveries in 50+ projects with proven methodology" }
+                        ]
                     }
                 }
             ]
+        },
+        "award": [
+            {
+                "@type": "Award",
+                "name": "100% Entregas a Tiempo",
+                "description": "50+ proyectos entregados sin retrasos en los últimos 5 años"
+            },
+            {
+                "@type": "Award", 
+                "name": "Cero Retrabajos",
+                "description": "Metodología Obratec garantiza calidad sin necesidad de rehacer trabajos"
+            }
+        ],
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://pablocabello.com"
+        },
+        "potentialAction": {
+            "@type": "ReserveAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://pablocabello.com#contacto"
+            },
+            "result": {
+                "@type": "Reservation",
+                "name": "Consulta de Proyecto Retail"
+            }
         }
     }
+    
     </script>
     
+
+
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE03XZJNV6"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_TRACKING_ID', {
+        gtag('config', 'G-KE03XZJNV6', {
             // Enhanced ecommerce and conversion tracking
             send_page_view: true,
             custom_map: {
@@ -170,10 +370,11 @@
     </script>
     
     <!-- Hotjar Heatmaps & Recording -->
+    <!-- Hotjar Tracking Code for https://pablocabello.com/ -->
     <script>
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
+            h._hjSettings={hjid:6500399,hjsv:6};
             a=o.getElementsByTagName('head')[0];
             r=o.createElement('script');r.async=1;
             r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
@@ -217,22 +418,27 @@
     <script src="assets/js/analytics-tracker.js" defer></script>
     <script src="assets/js/performance-optimizer.js" defer></script>
     <script src="assets/js/ab-testing.js" defer></script>
+    <script src="assets/js/language-switcher.js" defer></script>
 </head>
 <body>
 
     <header class="main-header">
         <div class="container">
             <div class="logo">
-                <a href="#">Pablo Cabello - Arquitecto Técnico</a>
+                <a href="#" data-lang-es="Pablo Cabello · Arquitecto Técnico" data-lang-en="Pablo Cabello · Technical Architect">Pablo Cabello · Arquitecto Técnico</a>
             </div>
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#sobre-mi">Sobre Mí</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#sobre-mi" data-lang-es="Sobre Mí" data-lang-en="About Me">Sobre Mí</a></li>
+                    <li><a href="#servicios" data-lang-es="Servicios" data-lang-en="Services">Servicios</a></li>
+                    <li><a href="#proyectos" data-lang-es="Proyectos" data-lang-en="Projects">Proyectos</a></li>
+                    <li><a href="#contacto" data-lang-es="Contacto" data-lang-en="Contact">Contacto</a></li>
                 </ul>
             </nav>
+            <div class="language-switcher">
+                <button id="lang-es" class="active">ES</button>
+                <button id="lang-en">EN</button>
+            </div>
         </div>
     </header>
 
@@ -244,19 +450,19 @@
             </div>
             <div class="hero-content">
                     <div class="hero-text">
-                        <h1>Aperturas retail <span class="highlight">sin sobresaltos</span>: obra, licencias y certificado energético a tiempo y a la primera</h1>
-                        <p class="hero-subtitle">Arquitecto Técnico colegiado con 10+ años en franquicias. Metodología propia para abrir tu tienda en plazo, con licencias tramitadas, CEE en 36-72 h y documentación completa desde el día 1.</p>
+                        <h1 data-lang-es="Aperturas retail sin sobresaltos: obra, licencias y certificado energético a tiempo y a la primera" data-lang-en="Smooth Retail Openings: construction, licenses, and energy certificates on time, the first time">Aperturas retail <span class="highlight">sin sobresaltos</span>: obra, licencias y certificado energético a tiempo y a la primera</h1>
+                        <p class="hero-subtitle" data-lang-es="Arquitecto Técnico colegiado con 10+ años en franquicias. Metodología propia para abrir tu tienda en plazo, con licencias tramitadas, CEE en 36-72 h y documentación completa desde el día 1." data-lang-en="Chartered Technical Architect with 10+ years in franchises. Proprietary methodology to open your store on schedule, with processed licenses, EEC in 36-72h, and complete documentation from day 1.">Arquitecto Técnico colegiado con 10+ años en franquicias. Metodología propia para abrir tu tienda en plazo, con licencias tramitadas, CEE en 36-72 h y documentación completa desde el día 1.</p>
                         
                         <!-- CTAs Duales -->
                         <div class="hero-ctas">
                             <a href="#contacto" class="cta-button">
-                                <span>¡Hablemos de mi proyecto!</span>
+                                <span data-lang-es="¡Hablemos de mi proyecto!" data-lang-en="Let's talk about my project!">¡Hablemos de mi proyecto!</span>
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
                                 </svg>
                             </a>
                             <a href="#proyectos" class="cta-button-outline">
-                                <span>Ver cómo trabajo</span>
+                                <span data-lang-es="Ver cómo trabajo" data-lang-en="See how I work">Ver cómo trabajo</span>
                             </a>
                         </div>
                     </div>
@@ -265,19 +471,19 @@
                     <div class="hero-stats">
                         <div class="stat-item">
                             <div class="stat-number">100<span>%</span></div>
-                            <div class="stat-label">Entregas a tiempo<br><small>en los últimos 5 años</small></div>
+                            <div class="stat-label" data-lang-es="Entregas a tiempo" data-lang-en="On-time deliveries">Entregas a tiempo<br><small data-lang-es="en los últimos 5 años" data-lang-en="in the last 5 years">en los últimos 5 años</small></div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">50<span>+</span></div>
-                            <div class="stat-label">Proyectos completados</div>
+                            <div class="stat-label" data-lang-es="Proyectos completados" data-lang-en="Projects completed">Proyectos completados</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">0<span></span></div>
-                            <div class="stat-label">Retrasos reportados</div>
+                            <div class="stat-label" data-lang-es="Retrasos reportados" data-lang-en="Delays reported">Retrasos reportados</div>
                         </div>
                         <div class="stat-item">
                             <div class="stat-number">72<span>h</span></div>
-                            <div class="stat-label">CEE entregado</div>
+                            <div class="stat-label" data-lang-es="CEE entregado" data-lang-en="EEC delivered">CEE entregado</div>
                         </div>
                     </div>
                 </div>
@@ -288,12 +494,12 @@
         <section id="confianza" class="trust-section">
             <div class="container">
                 <div class="trust-content">
-                    <h2 class="trust-title">Clientes líderes confían en mi gestión</h2>
+                    <h2 class="trust-title" data-lang-es="Clientes líderes confían en mi gestión" data-lang-en="Leading clients trust my management">Clientes líderes confían en mi gestión</h2>
                     <div class="trust-elements">
                         <!-- Testimonio Principal -->
                         <div class="testimonial-featured">
                             <div class="testimonial-content">
-                                <blockquote>
+                                <blockquote data-lang-es="Pablo es un profesional muy organizado y responsable. Durante las aperturas de distintos locales mantuvo los plazos y los presupuestos bajo control, coordinando a proveedores con una metodología clara y reportes semanales. Su forma de trabajar nos dio tranquilidad desde el día uno." data-lang-en="Pablo is a very organized and responsible professional. During the openings of different stores, he kept deadlines and budgets under control, coordinating suppliers with a clear methodology and weekly reports. His way of working gave us peace of mind from day one.">
                                 Pablo es un profesional <strong>muy organizado</strong> y <strong>responsable</strong>.
                                 Durante lad aperturas de distintos locales mantuvo los <strong>plazos</strong> y los <strong>presupuestos</strong> bajo control,
                                 coordinando a proveedores con una metodología clara y reportes semanales.
@@ -301,8 +507,8 @@
                                 </blockquote>
                                 <div class="testimonial-author">
                                     <div class="author-info">
-                                        <h4>María Gonzalez</h4>
-                                        <p>Equipo de obra, ISRG</p>
+                                        <h4 data-lang-es="María Gonzalez" data-lang-en="María Gonzalez">María Gonzalez</h4>
+                                        <p data-lang-es="Equipo de obra, ISRG" data-lang-en="Construction Team, ISRG">Equipo de obra, ISRG</p>
                                     </div>
                                     <div class="author-rating">
                                         <div class="stars">
@@ -322,8 +528,8 @@
                                     </svg>
                                 </div>
                                 <div class="cert-text">
-                                    <h4>Arquitecto Técnico Colegiado</h4>
-                                    <p>Colegio de Aparejadores Granada • Desde 2013</p>
+                                    <h4 data-lang-es="Arquitecto Técnico Colegiado" data-lang-en="Chartered Technical Architect">Arquitecto Técnico Colegiado</h4>
+                                    <p data-lang-es="Colegio de Aparejadores Granada • Desde 2013" data-lang-en="Granada Surveyors Association • Since 2013">Colegio de Aparejadores Granada • Desde 2013</p>
                                 </div>
                             </div>
                             
@@ -334,8 +540,8 @@
                                     </svg>
                                 </div>
                                 <div class="cert-text">
-                                    <h4>Especialista en PRL</h4>
-                                    <p>Prevención Riesgos Laborales</p>
+                                    <h4 data-lang-es="Especialista en PRL" data-lang-en="OHS Specialist">Especialista en PRL</h4>
+                                    <p data-lang-es="Prevención Riesgos Laborales" data-lang-en="Occupational Hazard Prevention">Prevención Riesgos Laborales</p>
                                 </div>
                             </div>
                             
@@ -346,8 +552,8 @@
                                     </svg>
                                 </div>
                                 <div class="cert-text">
-                                    <h4>Metodología de Gestión</h4>
-                                    <p>Sistema documentado y probado</p>
+                                    <h4 data-lang-es="Metodología de Gestión" data-lang-en="Management Methodology">Metodología de Gestión</h4>
+                                    <p data-lang-es="Sistema documentado y probado" data-lang-en="Documented and proven system">Sistema documentado y probado</p>
                                 </div>
                             </div>
                         </div>
@@ -360,11 +566,11 @@
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">
-                        <h2>Especialista en <span class="highlight-text">Gestión y Ejecución</span> de Obras</h2>
-                        <p class="about-lead">
+                        <h2 data-lang-es="Especialista en Gestión y Ejecución de Obras" data-lang-en="Specialist in Construction Management and Execution">Especialista en <span class="highlight-text">Gestión y Ejecución</span> de Obras</h2>
+                        <p class="about-lead" data-lang-es="Comprometido con la entrega puntual y la optimización de recursos en cada fase. He supervisado y ejecutado más de 50 proyectos de reforma y nueva construcción en franquicias y retail, logrando un récord de entrega a tiempo del 100%." data-lang-en="Committed to timely delivery and resource optimization in every phase. I have supervised and executed over 50 renovation and new construction projects in franchises and retail, achieving a 100% on-time delivery record.">
                             Comprometido con la entrega puntual y la optimización de recursos en cada fase. He supervisado y ejecutado más de 50 proyectos de reforma y nueva construcción en franquicias y retail, logrando un récord de entrega a tiempo del 100%.
                         </p>
-                        <p>
+                        <p data-lang-es="Creo en la importancia de un cronograma ágil, una coordinación minuciosa con proveedores y un enfoque centrado en la experiencia del cliente final. Si buscas optimizar tus obras de retail y necesitas un especialista en la coordinación de equipos y cumplimiento de plazos, estaré encantado de hablar." data-lang-en="I believe in the importance of an agile timeline, meticulous coordination with suppliers, and a focus on the end customer's experience. If you are looking to optimize your retail projects and need a specialist in team coordination and deadline compliance, I would be delighted to talk.">
                             Creo en la importancia de un cronograma ágil, una coordinación minuciosa con proveedores y un enfoque centrado en la experiencia del cliente final. Si buscas optimizar tus obras de retail y necesitas un especialista en la coordinación de equipos y cumplimiento de plazos, estaré encantado de hablar.
                         </p>
                         
@@ -373,29 +579,29 @@
                             <div class="credential-item">
                                 <div class="credential-icon">📋</div>
                                 <div class="credential-text">
-                                    <h4>Arquitecto Técnico</h4>
-                                    <p>Colegiado nº 90533</p>
+                                    <h4 data-lang-es="Arquitecto Técnico" data-lang-en="Technical Architect">Arquitecto Técnico</h4>
+                                    <p data-lang-es="Colegiado nº 90533" data-lang-en="Licensed No. 90533">Colegiado nº 90533</p>
                                 </div>
                             </div>
                             <div class="credential-item">
                                 <div class="credential-icon">🏆</div>
                                 <div class="credential-text">
-                                    <h4>50+ Proyectos</h4>
-                                    <p>100% entregas a tiempo</p>
+                                    <h4 data-lang-es="50+ Proyectos" data-lang-en="50+ Projects">50+ Proyectos</h4>
+                                    <p data-lang-es="100% entregas a tiempo" data-lang-en="100% on-time deliveries">100% entregas a tiempo</p>
                                 </div>
                             </div>
                             <div class="credential-item">
                                 <div class="credential-icon">⚡</div>
                                 <div class="credential-text">
-                                    <h4>Metodología Obratec</h4>
-                                    <p>Sistema documentado</p>
+                                    <h4 data-lang-es="Metodología Obratec" data-lang-en="Obratec Methodology">Metodología Obratec</h4>
+                                    <p data-lang-es="Sistema documentado" data-lang-en="Documented system">Sistema documentado</p>
                                 </div>
                             </div>
                             <div class="credential-item">
                                 <div class="credential-icon">🔒</div>
                                 <div class="credential-text">
-                                    <h4>Certificados de EE</h4>
-                                    <p>Autorizado para registrar</p>
+                                    <h4 data-lang-es="Certificados de EE" data-lang-en="EE Certificates">Certificados de EE</h4>
+                                    <p data-lang-es="Autorizado para registrar" data-lang-en="Authorized to register">Autorizado para registrar</p>
                                 </div>
                             </div>
                         </div>
@@ -406,7 +612,7 @@
                         
                         <!-- Badges flotantes -->
                         <div class="about-badges">
-                            <div class="achievement-badge">+10 años</div>
+                            <div class="achievement-badge" data-lang-es="+10 años" data-lang-en="+10 years">+10 años</div>
                             <div class="achievement-badge">Granada</div>
                             <div class="achievement-badge">Retail</div>
                         </div>
@@ -414,7 +620,7 @@
                         <!-- Estadística destacada -->
                         <div class="about-stat">
                             <div class="about-stat-number">100%</div>
-                            <div class="about-stat-label">Entregas</div>
+                            <div class="about-stat-label" data-lang-es="Entregas" data-lang-en="Deliveries">Entregas</div>
                         </div>
                     </div>
                 </div>
@@ -425,8 +631,8 @@
         <section id="servicios">
             <div class="container">
                 <div class="services-header">
-                    <h2>Servicios especializados para <span class="highlight-text">aperturas y retail</span></h2>
-                    <p class="services-subtitle">Soluciones específicas para cada fase de tu proyecto. Metodología probada en +50 aperturas.</p>
+                    <h2 data-lang-es="Servicios especializados para aperturas y retail" data-lang-en="Specialized services for openings and retail">Servicios especializados para <span class="highlight-text">aperturas y retail</span></h2>
+                    <p class="services-subtitle" data-lang-es="Soluciones específicas para cada fase de tu proyecto. Metodología probada en +50 aperturas." data-lang-en="Specific solutions for each phase of your project. Proven methodology in +50 openings.">Soluciones específicas para cada fase de tu proyecto. Metodología probada en +50 aperturas.</p>
                 </div>
                 
                 <div class="services-grid">
@@ -437,23 +643,23 @@
                                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                             </svg>
                         </div>
-                        <div class="service-badge">MÁS POPULAR</div>
-                        <h3>Pack Apertura 360 (Retail)</h3>
-                        <p class="service-result">De la idea a la apertura, sin pasos en falso</p>
-                        <p>Servicio integral que incluye <strong>todo</strong>: desde el estudio normativo hasta la entrega de llaves. Mi metodología completa para que no tengas que preocuparte de nada.</p>
+                        <div class="service-badge" data-lang-es="MÁS POPULAR" data-lang-en="MOST POPULAR">MÁS POPULAR</div>
+                        <h3 data-lang-es="Pack Apertura 360 (Retail)" data-lang-en="360 Opening Pack (Retail)">Pack Apertura 360 (Retail)</h3>
+                        <p class="service-result" data-lang-es="De la idea a la apertura, sin pasos en falso" data-lang-en="From idea to opening, without missteps">De la idea a la apertura, sin pasos en falso</p>
+                        <p data-lang-es="Servicio integral que incluye todo: desde el estudio normativo hasta la entrega de llaves. Mi metodología completa para que no tengas que preocuparte de nada." data-lang-en="Comprehensive service that includes everything: from the regulatory study to the handover of keys. My complete methodology so you don't have to worry about anything.">Servicio integral que incluye <strong>todo</strong>: desde el estudio normativo hasta la entrega de llaves. Mi metodología completa para que no tengas que preocuparte de nada.</p>
                         
                         <ul class="service-benefits">
-                            <li> Licencias y permisos gestionados</li>
-                            <li> Proyecto completo de apertura</li>
-                            <li> CEE en 36-72h</li>
-                            <li> Gestión completa de obra</li>
-                            <li> Reportes Obratec en tiempo real</li>
-                            <li> Entrega garantizada en plazo</li>
+                            <li data-lang-es="Licencias y permisos gestionados" data-lang-en="Licenses and permits managed">Licencias y permisos gestionados</li>
+                            <li data-lang-es="Proyecto completo de apertura" data-lang-en="Complete opening project">Proyecto completo de apertura</li>
+                            <li data-lang-es="CEE en 36-72h" data-lang-en="EEC in 36-72h">CEE en 36-72h</li>
+                            <li data-lang-es="Gestión completa de obra" data-lang-en="Complete construction management">Gestión completa de obra</li>
+                            <li data-lang-es="Reportes Obratec en tiempo real" data-lang-en="Obratec reports in real time">Reportes Obratec en tiempo real</li>
+                            <li data-lang-es="Entrega garantizada en plazo" data-lang-en="Guaranteed on-time delivery">Entrega garantizada en plazo</li>
                         </ul>
                         
                         <div class="service-cta">
                             <a href="#contacto" class="cta-button">
-                                <span>Solicitar Pack 360</span>
+                                <span data-lang-es="Solicitar Pack 360" data-lang-en="Request 360 Pack">Solicitar Pack 360</span>
                             </a>
                         </div>
                     </article>
@@ -465,20 +671,20 @@
                                 <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm4 18H6V4h7v5h5v11z"/>
                             </svg>
                         </div>
-                        <h3>Licencias de apertura y permisos</h3>
-                        <p class="service-result">De la viabilidad al OK municipal</p>
-                        <p>Te evito la burocracia completa. Desde el análisis normativo hasta la aprobación final, gestiono todo el proceso con tu ayuntamiento.</p>
+                        <h3 data-lang-es="Licencias de apertura y permisos" data-lang-en="Opening licenses and permits">Licencias de apertura y permisos</h3>
+                        <p class="service-result" data-lang-es="De la viabilidad al OK municipal" data-lang-en="From feasibility to municipal OK">De la viabilidad al OK municipal</p>
+                        <p data-lang-es="Te evito la burocracia completa. Desde el análisis normativo hasta la aprobación final, gestiono todo el proceso con tu ayuntamiento." data-lang-en="I save you the complete bureaucracy. From the regulatory analysis to the final approval, I manage the entire process with your city council.">Te evito la burocracia completa. Desde el análisis normativo hasta la aprobación final, gestiono todo el proceso con tu ayuntamiento.</p>
                         
                         <ul class="service-benefits">
-                            <li> Estudio normativo por uso</li>
-                            <li> Gestión de tasas y requerimientos</li>
-                            <li> Comunicación con ayuntamiento</li>
-                            <li> <strong>Documentación con Obratec Forms</strong></li>
+                            <li data-lang-es="Estudio normativo por uso" data-lang-en="Regulatory study by use">Estudio normativo por uso</li>
+                            <li data-lang-es="Gestión de tasas y requerimientos" data-lang-en="Management of fees and requirements">Gestión de tasas y requerimientos</li>
+                            <li data-lang-es="Comunicación con ayuntamiento" data-lang-en="Communication with city council">Comunicación con ayuntamiento</li>
+                            <li data-lang-es="Documentación con Obratec Forms" data-lang-en="Documentation with Obratec Forms"><strong>Documentación con Obratec Forms</strong></li>
                         </ul>
                         
                         <div class="service-cta">
                             <a href="#contacto" class="cta-button-secondary">
-                                <span>Gestionar mis licencias</span>
+                                <span data-lang-es="Gestionar mis licencias" data-lang-en="Manage my licenses">Gestionar mis licencias</span>
                             </a>
                         </div>
                     </article>
@@ -490,20 +696,20 @@
                                 <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 1L9 7V9C9 10.1 9.9 11 11 11V16L7.5 15.5C7.1 15.4 6.7 15.7 6.6 16.1L6.4 17.1C6.3 17.5 6.6 17.9 7 18L12 19L17 18C17.4 17.9 17.7 17.5 17.6 17.1L17.4 16.1C17.3 15.7 16.9 15.4 16.5 15.5L13 16V11C14.1 11 15 10.1 15 9Z"/>
                             </svg>
                         </div>
-                        <h3>Gestión de obra retail</h3>
-                        <p class="service-result">Plazo, coste y calidad bajo control</p>
-                        <p>Coordino tu obra con metodología ágil. Mi red de proveedores de confianza y sistema de reportes te mantienen informado en tiempo real.</p>
+                        <h3 data-lang-es="Gestión de obra retail" data-lang-en="Retail construction management">Gestión de obra retail</h3>
+                        <p class="service-result" data-lang-es="Plazo, coste y calidad bajo control" data-lang-en="Deadline, cost and quality under control">Plazo, coste y calidad bajo control</p>
+                        <p data-lang-es="Coordino tu obra con metodología ágil. Mi red de proveedores de confianza y sistema de reportes te mantienen informado en tiempo real." data-lang-en="I coordinate your project with an agile methodology. My network of trusted suppliers and reporting system keep you informed in real time.">Coordino tu obra con metodología ágil. Mi red de proveedores de confianza y sistema de reportes te mantienen informado en tiempo real.</p>
                         
                         <ul class="service-benefits">
-                            <li> Planning y entregas parciales</li>
-                            <li> Red de proveedores de confianza</li>
-                            <li> <strong>Reportes con Obratec Forms</strong></li>
-                            <li> Presupuesto cerrado y controlado</li>
+                            <li data-lang-es="Planning y entregas parciales" data-lang-en="Planning and partial deliveries">Planning y entregas parciales</li>
+                            <li data-lang-es="Red de proveedores de confianza" data-lang-en="Network of trusted suppliers">Red de proveedores de confianza</li>
+                            <li data-lang-es="Reportes con Obratec Forms" data-lang-en="Reports with Obratec Forms"><strong>Reportes con Obratec Forms</strong></li>
+                            <li data-lang-es="Presupuesto cerrado y controlado" data-lang-en="Closed and controlled budget">Presupuesto cerrado y controlado</li>
                         </ul>
                         
                         <div class="service-cta">
                             <a href="#contacto" class="cta-button-secondary">
-                                <span>Coordinar mi obra</span>
+                                <span data-lang-es="Coordinar mi obra" data-lang-en="Coordinate my project">Coordinar mi obra</span>
                             </a>
                         </div>
                     </article>
@@ -511,20 +717,20 @@
                 
                 <!-- SERVICIOS ADICIONALES -->
                 <div class="additional-services">
-                    <h3>Servicios adicionales disponibles:</h3>
+                    <h3 data-lang-es="Servicios adicionales disponibles:" data-lang-en="Additional services available:">Servicios adicionales disponibles:</h3>
                     <div class="additional-grid">
                         <div class="additional-item">
                             <div class="additional-icon">⚡</div>
                             <div class="additional-content">
-                                <h4>Proyecto de apertura y legalización</h4>
-                                <p>Documentación lista para aprobar: planos, memorias, seguridad y salud. Entrega digital y sellado colegial.</p>
+                                <h4 data-lang-es="Proyecto de apertura y legalización" data-lang-en="Opening and legalization project">Proyecto de apertura y legalización</h4>
+                                <p data-lang-es="Documentación lista para aprobar: planos, memorias, seguridad y salud. Entrega digital y sellado colegial." data-lang-en="Documentation ready for approval: plans, reports, health and safety. Digital delivery and professional sealing.">Documentación lista para aprobar: planos, memorias, seguridad y salud. Entrega digital y sellado colegial.</p>
                             </div>
                         </div>
                         <div class="additional-item">
                             <div class="additional-icon">🏠</div>
                             <div class="additional-content">
-                                <h4>Certificado energético (CEE) en 24–48 h</h4>
-                                <p>Rápido, sin fricción. Visita, toma de datos, emisión y registro autonómico incluido. Presupuesto cerrado.</p>
+                                <h4 data-lang-es="Certificado energético (CEE) en 24–48 h" data-lang-en="Energy Performance Certificate (EPC) in 24–48 h">Certificado energético (CEE) en 24–48 h</h4>
+                                <p data-lang-es="Rápido, sin fricción. Visita, toma de datos, emisión y registro autonómico incluido. Presupuesto cerrado." data-lang-en="Fast, frictionless. Visit, data collection, issuance, and regional registration included. Closed budget.">Rápido, sin fricción. Visita, toma de datos, emisión y registro autonómico incluido. Presupuesto cerrado.</p>
                             </div>
                         </div>
                     </div>
@@ -532,9 +738,9 @@
                 
                 <div class="services-comparison">
                     <div class="comparison-note">
-                        <h4>¿No estás seguro cuál necesitas?</h4>
-                        <p>El <strong>Pack 360</strong> incluye todo y es más económico que contratar servicios por separado. Consultoría gratuita para ayudarte a decidir.</p>
-                        <a href="#contacto" class="cta-button">Consultoría gratuita</a>
+                        <h4 data-lang-es="¿No estás seguro cuál necesitas?" data-lang-en="Not sure which one you need?">¿No estás seguro cuál necesitas?</h4>
+                        <p data-lang-es="El Pack 360 incluye todo y es más económico que contratar servicios por separado. Consultoría gratuita para ayudarte a decidir." data-lang-en="The 360 Pack includes everything and is more economical than hiring services separately. Free consultation to help you decide.">El <strong>Pack 360</strong> incluye todo y es más económico que contratar servicios por separado. Consultoría gratuita para ayudarte a decidir.</p>
+                        <a href="#contacto" class="cta-button" data-lang-es="Consultoría gratuita" data-lang-en="Free consultation">Consultoría gratuita</a>
                     </div>
                 </div>
                 
@@ -546,8 +752,8 @@
                             </svg>
                         </div>
                         <div class="guarantee-content">
-                            <h4>Garantía 100% en entregas</h4>
-                            <p>Si no entrego en plazo por mi responsabilidad, no pagas honorarios</p>
+                            <h4 data-lang-es="Garantía 100% en entregas" data-lang-en="100% delivery guarantee">Garantía 100% en entregas</h4>
+                            <p data-lang-es="Si no entrego en plazo por mi responsabilidad, no pagas honorarios" data-lang-en="If I don't deliver on time due to my responsibility, you don't pay fees">Si no entrego en plazo por mi responsabilidad, no pagas honorarios</p>
                         </div>
                     </div>
                 </div>
@@ -559,51 +765,51 @@
         <section id="proyectos" class="case-studies-section">
             <div class="container">
                 <div class="section-header">
-                    <h2>Casos reales de <span class="highlight-text">aperturas de locales</span></h2>
-                    <p class="section-subtitle">Resultados medibles para clientes retail: plazos cumplidos, licencias a la primera y presupuesto bajo control.</p>
+                    <h2 data-lang-es="Casos reales de aperturas de locales" data-lang-en="Real cases of store openings">Casos reales de <span class="highlight-text">aperturas de locales</span></h2>
+                    <p class="section-subtitle" data-lang-es="Resultados medibles para clientes retail: plazos cumplidos, licencias a la primera y presupuesto bajo control." data-lang-en="Measurable results for retail clients: deadlines met, licenses on the first try, and budget under control.">Resultados medibles para clientes retail: plazos cumplidos, licencias a la primera y presupuesto bajo control.</p>
                 </div>
                 
                 <div class="case-studies-grid">
                     <!-- 1) Basic-Fit Ciudad Real -->
                     <article class="case-study featured">
                         <div class="case-header">
-                            <div class="case-badge">GIMNASIO</div>
+                            <div class="case-badge" data-lang-es="GIMNASIO" data-lang-en="GYM">GIMNASIO</div>
                             <div class="case-image">
                                 <img src="assets/images/basic-fit-ciudadreal.jpg" alt="Basic-Fit Ciudad Real" loading="lazy" width="400" height="300">
                             </div>
                         </div>
                         <div class="case-content">
                             <h3>Basic-Fit · Ciudad Real</h3>
-                            <p class="case-subtitle">Transformación de local en gimnasio funcional</p>
-                            <p class="case-role"><strong>Rol:</strong> Director de obra</p>
+                            <p class="case-subtitle" data-lang-es="Transformación de local en gimnasio funcional" data-lang-en="Transformation of premises into a functional gym">Transformación de local en gimnasio funcional</p>
+                            <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Director de obra" data-lang-en="Construction Manager">Director de obra</span></p>
                             
                             <div class="case-challenge">
-                                <h4>🎯 Reto:</h4>
-                                <p>Conseguir un espacio moderno y funcional cumpliendo plazos ajustados y manteniendo el control presupuestario.</p>
+                                <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                <p data-lang-es="Conseguir un espacio moderno y funcional cumpliendo plazos ajustados y manteniendo el control presupuestario." data-lang-en="Achieve a modern and functional space while meeting tight deadlines and maintaining budgetary control.">Conseguir un espacio moderno y funcional cumpliendo plazos ajustados y manteniendo el control presupuestario.</p>
                             </div>
                             
                             <div class="case-solution">
-                                <h4>⚡ Qué hice:</h4>
-                                <p>Planificación completa, coordinación con proveedores especializados y control de calidad continuo durante toda la obra.</p>
+                                <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                <p data-lang-es="Planificación completa, coordinación con proveedores especializados y control de calidad continuo durante toda la obra." data-lang-en="Complete planning, coordination with specialized suppliers, and continuous quality control throughout the project.">Planificación completa, coordinación con proveedores especializados y control de calidad continuo durante toda la obra.</p>
                             </div>
                             
                             <div class="case-results">
-                                <h4>✅ Resultado:</h4>
-                                <p>Obra finalizada en <strong>11 semanas</strong> con <strong>700 m²</strong> de superficie de entrenamiento y vestuarios totalmente equipados.</p>
+                                <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                <p data-lang-es="Obra finalizada en 11 semanas con 700 m² de superficie de entrenamiento y vestuarios totalmente equipados." data-lang-en="Project completed in 11 weeks with 700 m² of training area and fully equipped changing rooms.">Obra finalizada en <strong>11 semanas</strong> con <strong>700 m²</strong> de superficie de entrenamiento y vestuarios totalmente equipados.</p>
                             </div>
                             
                             <div class="case-facts">
                                 <div class="fact-item">
-                                    <span class="fact-label">Superficie:</span>
+                                    <span class="fact-label" data-lang-es="Superficie:" data-lang-en="Area:">Superficie:</span>
                                     <span class="fact-value">700 m²</span>
                                 </div>
                                 <div class="fact-item">
-                                    <span class="fact-label">Plazo:</span>
-                                    <span class="fact-value">11 semanas</span>
+                                    <span class="fact-label" data-lang-es="Plazo:" data-lang-en="Timeline:">Plazo:</span>
+                                    <span class="fact-value" data-lang-es="11 semanas" data-lang-en="11 weeks">11 semanas</span>
                                 </div>
                                 <div class="fact-item">
-                                    <span class="fact-label">Control presupuesto:</span>
-                                    <span class="fact-value">Eficiencia ✓</span>
+                                    <span class="fact-label" data-lang-es="Control presupuesto:" data-lang-en="Budget control:">Control presupuesto:</span>
+                                    <span class="fact-value" data-lang-es="Eficiencia ✓" data-lang-en="Efficiency ✓">Eficiencia ✓</span>
                                 </div>
                             </div>
                         </div>
@@ -612,43 +818,43 @@
                     <!-- 2) K-Tuin Lugo -->
                     <article class="case-study">
                         <div class="case-header">
-                            <div class="case-badge">PREMIUM TECH</div>
+                            <div class="case-badge" data-lang-es="PREMIUM TECH" data-lang-en="PREMIUM TECH">PREMIUM TECH</div>
                             <div class="case-image">
                                 <img src="assets/images/ktuin-lugo.jpg" alt="K-Tuin Lugo" loading="lazy" width="400" height="300">
                             </div>
                         </div>
                         <div class="case-content">
                             <h3>K-Tuin · Lugo</h3>
-                            <p class="case-subtitle">Construcción integral para franquicia de Apple</p>
-                            <p class="case-role"><strong>Rol:</strong> Project Manager</p>
+                            <p class="case-subtitle" data-lang-es="Construcción integral para franquicia de Apple" data-lang-en="Comprehensive construction for an Apple franchise">Construcción integral para franquicia de Apple</p>
+                            <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Project Manager" data-lang-en="Project Manager">Project Manager</span></p>
                             
                             <div class="case-challenge">
-                                <h4>🎯 Reto:</h4>
-                                <p>Estándares premium Apple y entrega sin desviaciones en casco antiguo de Lugo.</p>
+                                <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                <p data-lang-es="Estándares premium Apple y entrega sin desviaciones en casco antiguo de Lugo." data-lang-en="Premium Apple standards and delivery without deviations in the old town of Lugo.">Estándares premium Apple y entrega sin desviaciones en casco antiguo de Lugo.</p>
                             </div>
                             
                             <div class="case-solution">
-                                <h4>⚡ Qué hice:</h4>
-                                <p>Obra civil e instalaciones, coordinación de mobiliario técnico y calendario de hitos con auditorías Apple.</p>
+                                <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                <p data-lang-es="Obra civil e instalaciones, coordinación de mobiliario técnico y calendario de hitos con auditorías Apple." data-lang-en="Civil works and installations, coordination of technical furniture, and milestone calendar with Apple audits.">Obra civil e instalaciones, coordinación de mobiliario técnico y calendario de hitos con auditorías Apple.</p>
                             </div>
                             
                             <div class="case-results">
-                                <h4>✅ Resultado:</h4>
-                                <p><strong>500 m²</strong> ejecutados en <strong>8 semanas</strong>. Local listo para auditoría y apertura Apple.</p>
+                                <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                <p data-lang-es="500 m² ejecutados en 8 semanas. Local listo para auditoría y apertura Apple." data-lang-en="500 m² executed in 8 weeks. Store ready for Apple audit and opening."><strong>500 m²</strong> ejecutados en <strong>8 semanas</strong>. Local listo para auditoría y apertura Apple.</p>
                             </div>
                             
                             <div class="case-facts">
                                 <div class="fact-item">
-                                    <span class="fact-label">Licencias:</span>
-                                    <span class="fact-value">Apertura y legalización ✓</span>
+                                    <span class="fact-label" data-lang-es="Licencias:" data-lang-en="Licenses:">Licencias:</span>
+                                    <span class="fact-value" data-lang-es="Apertura y legalización ✓" data-lang-en="Opening and legalization ✓">Apertura y legalización ✓</span>
                                 </div>
                                 <div class="fact-item">
-                                    <span class="fact-label">Re-trabajos:</span>
-                                    <span class="fact-value">0 proyectos</span>
+                                    <span class="fact-label" data-lang-es="Re-trabajos:" data-lang-en="Reworks:">Re-trabajos:</span>
+                                    <span class="fact-value" data-lang-es="0 proyectos" data-lang-en="0 projects">0 proyectos</span>
                                 </div>
                                 <div class="fact-item">
-                                    <span class="fact-label">Entrega:</span>
-                                    <span class="fact-value">En plazo</span>
+                                    <span class="fact-label" data-lang-es="Entrega:" data-lang-en="Delivery:">Entrega:</span>
+                                    <span class="fact-value" data-lang-es="En plazo" data-lang-en="On time">En plazo</span>
                                 </div>
                             </div>
                         </div>
@@ -657,43 +863,43 @@
                     <!-- 3) Sprinter Ceuta -->
                     <article class="case-study">
                         <div class="case-header">
-                            <div class="case-badge">RETAIL DEPORTIVO</div>
+                            <div class="case-badge" data-lang-es="RETAIL DEPORTIVO" data-lang-en="SPORTS RETAIL">RETAIL DEPORTIVO</div>
                             <div class="case-image">
                                 <img src="assets/images/sprinter-ceuta.jpg" alt="Sprinter Ceuta" loading="lazy" width="400" height="300">
                             </div>
                         </div>
                         <div class="case-content">
                             <h3>Sprinter · Ceuta</h3>
-                            <p class="case-subtitle">Nueva apertura en entorno portuario</p>
-                            <p class="case-role"><strong>Rol:</strong> Dirección de obra</p>
+                            <p class="case-subtitle" data-lang-es="Nueva apertura en entorno portuario" data-lang-en="New opening in a port environment">Nueva apertura en entorno portuario</p>
+                            <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Dirección de obra" data-lang-en="Construction Management">Dirección de obra</span></p>
                             
                             <div class="case-challenge">
-                                <h4>🎯 Reto:</h4>
-                                <p>Logística de materiales y coordinación en zona portuaria con calendario comercial estricto.</p>
+                                <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                <p data-lang-es="Logística de materiales y coordinación en zona portuaria con calendario comercial estricto." data-lang-en="Materials logistics and coordination in a port area with a strict commercial calendar.">Logística de materiales y coordinación en zona portuaria con calendario comercial estricto.</p>
                             </div>
                             
                             <div class="case-solution">
-                                <h4>⚡ Qué hice:</h4>
-                                <p>Plan logístico especial, coordinación de proveedores y planificación de inspecciones aduaneras.</p>
+                                <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                <p data-lang-es="Plan logístico especial, coordinación de proveedores y planificación de inspecciones aduaneras." data-lang-en="Special logistics plan, supplier coordination, and planning of customs inspections.">Plan logístico especial, coordinación de proveedores y planificación de inspecciones aduaneras.</p>
                             </div>
                             
                             <div class="case-results">
-                                <h4>✅ Resultado:</h4>
-                                <p>Apertura en <strong>10 semanas</strong> con calibración de instalaciones y entrega "llave en mano".</p>
+                                <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                <p data-lang-es="Apertura en 10 semanas con calibración de instalaciones y entrega &quot;llave en mano&quot;." data-lang-en="Opening in 10 weeks with installation calibration and turnkey delivery.">Apertura en <strong>10 semanas</strong> con calibración de instalaciones y entrega "llave en mano".</p>
                             </div>
                             
                             <div class="case-facts">
                                 <div class="fact-item">
-                                    <span class="fact-label">Superficie:</span>
+                                    <span class="fact-label" data-lang-es="Superficie:" data-lang-en="Area:">Superficie:</span>
                                     <span class="fact-value">800 m²</span>
                                 </div>
                                 <div class="fact-item">
-                                    <span class="fact-label">Licencias:</span>
-                                    <span class="fact-value">Obra y actividad ✓</span>
+                                    <span class="fact-label" data-lang-es="Licencias:" data-lang-en="Licenses:">Licencias:</span>
+                                    <span class="fact-value" data-lang-es="Obra y actividad ✓" data-lang-en="Construction and activity ✓">Obra y actividad ✓</span>
                                 </div>
                                 <div class="fact-item">
-                                    <span class="fact-label">Desviación:</span>
-                                    <span class="fact-value">< ±2% presupuesto</span>
+                                    <span class="fact-label" data-lang-es="Desviación:" data-lang-en="Deviation:">Desviación:</span>
+                                    <span class="fact-value" data-lang-es="< ±2% presupuesto" data-lang-en="< ±2% budget">< ±2% presupuesto</span>
                                 </div>
                             </div>
                         </div>
@@ -702,43 +908,43 @@
                     <!-- 4) LlaoLlao Granada -->
                     <article class="case-study">
                         <div class="case-header">
-                            <div class="case-badge">ALIMENTACIÓN</div>
+                            <div class="case-badge" data-lang-es="ALIMENTACIÓN" data-lang-en="FOOD">ALIMENTACIÓN</div>
                             <div class="case-image">
                                 <img src="assets/images/llaollao-granada.jpg" alt="LlaoLlao Granada" loading="lazy" width="400" height="300">
                             </div>
                         </div>
                         <div class="case-content">
                             <h3>LlaoLlao · Gran Vía (Granada)</h3>
-                            <p class="case-subtitle">Adecuación para actividad alimentaria</p>
-                            <p class="case-role"><strong>Rol:</strong> Dirección de obra y gestión de proyectos</p>
+                            <p class="case-subtitle" data-lang-es="Adecuación para actividad alimentaria" data-lang-en="Adaptation for food activity">Adecuación para actividad alimentaria</p>
+                            <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Dirección de obra y gestión de proyectos" data-lang-en="Construction and project management">Dirección de obra y gestión de proyectos</span></p>
                             
                             <div class="case-challenge">
-                                <h4>🎯 Reto:</h4>
-                                <p>Exigencias sanitarias y de ventilación en edificio histórico del centro de Granada.</p>
+                                <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                <p data-lang-es="Exigencias sanitarias y de ventilación en edificio histórico del centro de Granada." data-lang-en="Sanitary and ventilation requirements in a historic building in the center of Granada.">Exigencias sanitarias y de ventilación en edificio histórico del centro de Granada.</p>
                             </div>
                             
                             <div class="case-solution">
-                                <h4>⚡ Qué hice:</h4>
-                                <p>Obra civil, instalaciones y documentación sanitaria; coordinación directa con inspección municipal.</p>
+                                <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                <p data-lang-es="Obra civil, instalaciones y documentación sanitaria; coordinación directa con inspección municipal." data-lang-en="Civil works, installations, and sanitary documentation; direct coordination with municipal inspection.">Obra civil, instalaciones y documentación sanitaria; coordinación directa con inspección municipal.</p>
                             </div>
                             
                             <div class="case-results">
-                                <h4>✅ Resultado:</h4>
-                                <p>Apertura en <strong>8 semanas</strong> con <strong>licencia sanitaria a la primera</strong>.</p>
+                                <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                <p data-lang-es="Apertura en 8 semanas con licencia sanitaria a la primera." data-lang-en="Opening in 8 weeks with sanitary license on the first try.">Apertura en <strong>8 semanas</strong> con <strong>licencia sanitaria a la primera</strong>.</p>
                             </div>
                             
                             <div class="case-facts">
                                 <div class="fact-item">
-                                    <span class="fact-label">Licencias:</span>
-                                    <span class="fact-value">Obra y Actividad alimentaria ✓</span>
+                                    <span class="fact-label" data-lang-es="Licencias:" data-lang-en="Licenses:">Licencias:</span>
+                                    <span class="fact-value" data-lang-es="Obra y Actividad alimentaria ✓" data-lang-en="Construction and Food Activity ✓">Obra y Actividad alimentaria ✓</span>
                                 </div>
                                 <div class="fact-item">
-                                    <span class="fact-label">CEE:</span>
-                                    <span class="fact-value">Emitido en 24h ✓</span>
+                                    <span class="fact-label" data-lang-es="CEE:" data-lang-en="EPC:">CEE:</span>
+                                    <span class="fact-value" data-lang-es="Emitido en 24h ✓" data-lang-en="Issued in 24h ✓">Emitido en 24h ✓</span>
                                 </div>
                                 <div class="fact-item">
-                                    <span class="fact-label">Subsanaciones:</span>
-                                    <span class="fact-value">0 requerimientos</span>
+                                    <span class="fact-label" data-lang-es="Subsanaciones:" data-lang-en="Corrections:">Subsanaciones:</span>
+                                    <span class="fact-value" data-lang-es="0 requerimientos" data-lang-en="0 requests">0 requerimientos</span>
                                 </div>
                             </div>
                         </div>
@@ -748,7 +954,7 @@
                 <!-- Botón ver más casos -->
                 <div class="more-cases-toggle">
                     <button class="btn-toggle-cases" id="toggle-cases">
-                        <span>Ver más casos</span>
+                        <span data-lang-es="Ver más casos" data-lang-en="See more cases">Ver más casos</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M7 10l5 5 5-5z"/>
                         </svg>
@@ -761,43 +967,43 @@
                         <!-- 5) Clínica Baviera Vélez-Málaga -->
                         <article class="case-study">
                             <div class="case-header">
-                                <div class="case-badge">CLÍNICA MÉDICA</div>
+                                <div class="case-badge" data-lang-es="CLÍNICA MÉDICA" data-lang-en="MEDICAL CLINIC">CLÍNICA MÉDICA</div>
                                 <div class="case-image">
                                     <img src="assets/images/baviera-velez.jpg" alt="Clínica Baviera Vélez-Málaga" loading="lazy" width="400" height="300">
                                 </div>
                             </div>
                             <div class="case-content">
                                 <h3>Clínica Baviera · Vélez-Málaga</h3>
-                                <p class="case-subtitle">Desarrollo integral de clínica médica especializada</p>
-                                <p class="case-role"><strong>Rol:</strong> Director de obra y gestión integral</p>
+                                <p class="case-subtitle" data-lang-es="Desarrollo integral de clínica médica especializada" data-lang-en="Comprehensive development of a specialized medical clinic">Desarrollo integral de clínica médica especializada</p>
+                                <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Director de obra y gestión integral" data-lang-en="Construction manager and integral management">Director de obra y gestión integral</span></p>
                                 
                                 <div class="case-challenge">
-                                    <h4>🎯 Reto:</h4>
-                                    <p>Transformación completa desde demolición hasta clínica operativa, con estándares sanitarios específicos y equipamiento médico.</p>
+                                    <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                    <p data-lang-es="Transformación completa desde demolición hasta clínica operativa, con estándares sanitarios específicos y equipamiento médico." data-lang-en="Complete transformation from demolition to operational clinic, with specific sanitary standards and medical equipment.">Transformación completa desde demolición hasta clínica operativa, con estándares sanitarios específicos y equipamiento médico.</p>
                                 </div>
                                 
                                 <div class="case-solution">
-                                    <h4>⚡ Qué hice:</h4>
-                                    <p>Gestión de cada fase: demolición inicial, obra civil con suelo porcelánico 120x60cm, trabajos de pladur, instalaciones (eléctrica, climatización, fontanería), nueva fachada con vidrios, pintura, alicatado especializado, sanitarios y carpintería integral.</p>
+                                    <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                    <p data-lang-es="Gestión de cada fase: demolición inicial, obra civil con suelo porcelánico 120x60cm, trabajos de pladur, instalaciones (eléctrica, climatización, fontanería), nueva fachada con vidrios, pintura, alicatado especializado, sanitarios y carpintería integral." data-lang-en="Management of each phase: initial demolition, civil works with 120x60cm porcelain floor, plasterboard works, installations (electrical, air conditioning, plumbing), new facade with glass, painting, specialized tiling, toilets and integral carpentry.">Gestión de cada fase: demolición inicial, obra civil con suelo porcelánico 120x60cm, trabajos de pladur, instalaciones (eléctrica, climatización, fontanería), nueva fachada con vidrios, pintura, alicatado especializado, sanitarios y carpintería integral.</p>
                                 </div>
                                 
                                 <div class="case-results">
-                                    <h4>✅ Resultado:</h4>
-                                    <p>Clínica completamente operativa en <strong>11 semanas</strong> cumpliendo todos los estándares sanitarios y de seguridad requeridos.</p>
+                                    <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                    <p data-lang-es="Clínica completamente operativa en 11 semanas cumpliendo todos los estándares sanitarios y de seguridad requeridos." data-lang-en="Fully operational clinic in 11 weeks complying with all required health and safety standards.">Clínica completamente operativa en <strong>11 semanas</strong> cumpliendo todos los estándares sanitarios y de seguridad requeridos.</p>
                                 </div>
                                 
                                 <div class="case-facts">
                                     <div class="fact-item">
-                                        <span class="fact-label">Sector:</span>
-                                        <span class="fact-value">Salud médica</span>
+                                        <span class="fact-label" data-lang-es="Sector:" data-lang-en="Sector:">Sector:</span>
+                                        <span class="fact-value" data-lang-es="Salud médica" data-lang-en="Medical health">Salud médica</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Plazo:</span>
-                                        <span class="fact-value">11 semanas</span>
+                                        <span class="fact-label" data-lang-es="Plazo:" data-lang-en="Timeline:">Plazo:</span>
+                                        <span class="fact-value" data-lang-es="11 semanas" data-lang-en="11 weeks">11 semanas</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Normativa:</span>
-                                        <span class="fact-value">Sanitaria ✓</span>
+                                        <span class="fact-label" data-lang-es="Normativa:" data-lang-en="Regulation:">Normativa:</span>
+                                        <span class="fact-value" data-lang-es="Sanitaria ✓" data-lang-en="Sanitary ✓">Sanitaria ✓</span>
                                     </div>
                                 </div>
                             </div>
@@ -806,43 +1012,43 @@
                         <!-- 6) Perry Sports Estadio Ajax -->
                         <article class="case-study">
                             <div class="case-header">
-                                <div class="case-badge">INTERNACIONAL</div>
+                                <div class="case-badge" data-lang-es="INTERNACIONAL" data-lang-en="INTERNATIONAL">INTERNACIONAL</div>
                                 <div class="case-image">
                                     <img src="assets/images/perry-ajax.jpg" alt="Perry Sports Estadio Ajax" loading="lazy" width="400" height="300">
                                 </div>
                             </div>
                             <div class="case-content">
                                 <h3>Perry Sports · Estadio Joan Cruyff Arena (Ajax)</h3>
-                                <p class="case-subtitle">Reapertura y reforma integral en Países Bajos</p>
-                                <p class="case-role"><strong>Rol:</strong> Director de obra internacional</p>
+                                <p class="case-subtitle" data-lang-es="Reapertura y reforma integral en Países Bajos" data-lang-en="Reopening and comprehensive reform in the Netherlands">Reapertura y reforma integral en Países Bajos</p>
+                                <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Director de obra internacional" data-lang-en="International construction manager">Director de obra internacional</span></p>
                                 
                                 <div class="case-challenge">
-                                    <h4>🎯 Reto:</h4>
-                                    <p>Gestión de reforma integral en Amsterdam con coordinación a in situ y a distancia y cumplimiento de normativa holandesa estricta.</p>
+                                    <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                    <p data-lang-es="Gestión de reforma integral en Amsterdam con coordinación a in situ y a distancia y cumplimiento de normativa holandesa estricta." data-lang-en="Management of comprehensive reform in Amsterdam with on-site and remote coordination and compliance with strict Dutch regulations.">Gestión de reforma integral en Amsterdam con coordinación a in situ y a distancia y cumplimiento de normativa holandesa estricta.</p>
                                 </div>
                                 
                                 <div class="case-solution">
-                                    <h4>⚡ Qué hice:</h4>
-                                    <p>Supervisión remota e in-situ, coordinación con equipos locales y adaptación de procesos a normativa internacional.</p>
+                                    <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                    <p data-lang-es="Supervisión remota e in-situ, coordinación con equipos locales y adaptación de procesos a normativa internacional." data-lang-en="Remote and on-site supervision, coordination with local teams and adaptation of processes to international regulations.">Supervisión remota e in-situ, coordinación con equipos locales y adaptación de procesos a normativa internacional.</p>
                                 </div>
                                 
                                 <div class="case-results">
-                                    <h4>✅ Resultado:</h4>
-                                    <p>Reapertura exitosa con <strong>10 semanas</strong> de reforma y cumplimiento total de estándares europeos.</p>
+                                    <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                    <p data-lang-es="Reapertura exitosa con 10 semanas de reforma y cumplimiento total de estándares europeos." data-lang-en="Successful reopening with 10 weeks of reform and full compliance with European standards.">Reapertura exitosa con <strong>10 semanas</strong> de reforma y cumplimiento total de estándares europeos.</p>
                                 </div>
                                 
                                 <div class="case-facts">
                                     <div class="fact-item">
-                                        <span class="fact-label">Ciudad:</span>
+                                        <span class="fact-label" data-lang-es="Ciudad:" data-lang-en="City:">Ciudad:</span>
                                         <span class="fact-value">Amsterdam</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Tipo:</span>
-                                        <span class="fact-value">Reforma integral</span>
+                                        <span class="fact-label" data-lang-es="Tipo:" data-lang-en="Type:">Tipo:</span>
+                                        <span class="fact-value" data-lang-es="Reforma integral" data-lang-en="Comprehensive reform">Reforma integral</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Normativa:</span>
-                                        <span class="fact-value">EU Compliance ✓</span>
+                                        <span class="fact-label" data-lang-es="Normativa:" data-lang-en="Regulation:">Normativa:</span>
+                                        <span class="fact-value" data-lang-es="EU Compliance ✓" data-lang-en="EU Compliance ✓">EU Compliance ✓</span>
                                     </div>
                                 </div>
                             </div>
@@ -851,43 +1057,43 @@
                         <!-- 7) K-Tuin Elche -->
                         <article class="case-study">
                             <div class="case-header">
-                                <div class="case-badge">CENTRO COMERCIAL</div>
+                                <div class="case-badge" data-lang-es="CENTRO COMERCIAL" data-lang-en="SHOPPING CENTER">CENTRO COMERCIAL</div>
                                 <div class="case-image">
                                     <img src="assets/images/ktuin-elche.jpg" alt="K-Tuin Elche" loading="lazy" width="400" height="300">
                                 </div>
                             </div>
                             <div class="case-content">
                                 <h3>K-Tuin · Elche (CC L'Aljub)</h3>
-                                <p class="case-subtitle">Construcción integral Apple en centro comercial</p>
-                                <p class="case-role"><strong>Rol:</strong> Project Manager</p>
+                                <p class="case-subtitle" data-lang-es="Construcción integral Apple en centro comercial" data-lang-en="Comprehensive Apple construction in a shopping center">Construcción integral Apple en centro comercial</p>
+                                <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Project Manager" data-lang-en="Project Manager">Project Manager</span></p>
                                 
                                 <div class="case-challenge">
-                                    <h4>🎯 Reto:</h4>
-                                    <p>Calendarizar obra e instalaciones en centro comercial sin afectar operaciones existentes.</p>
+                                    <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                    <p data-lang-es="Calendarizar obra e instalaciones en centro comercial sin afectar operaciones existentes." data-lang-en="Schedule construction and installations in a shopping center without affecting existing operations.">Calendarizar obra e instalaciones en centro comercial sin afectar operaciones existentes.</p>
                                 </div>
                                 
                                 <div class="case-solution">
-                                    <h4>⚡ Qué hice:</h4>
-                                    <p>Obra civil e instalaciones nocturnas, coordinación de mobiliario técnico y señalización Apple.</p>
+                                    <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                    <p data-lang-es="Obra civil e instalaciones nocturnas, coordinación de mobiliario técnico y señalización Apple." data-lang-en="Civil works and night installations, coordination of technical furniture and Apple signage.">Obra civil e instalaciones nocturnas, coordinación de mobiliario técnico y señalización Apple.</p>
                                 </div>
                                 
                                 <div class="case-results">
-                                    <h4>✅ Resultado:</h4>
-                                    <p><strong>450 m²</strong> ejecutados en <strong>7 semanas</strong>, listos para apertura sin retrasos.</p>
+                                    <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                    <p data-lang-es="450 m² ejecutados en 7 semanas, listos para apertura sin retrasos." data-lang-en="450 m² executed in 7 weeks, ready for opening without delays."><strong>450 m²</strong> ejecutados en <strong>7 semanas</strong>, listos para apertura sin retrasos.</p>
                                 </div>
                                 
                                 <div class="case-facts">
                                     <div class="fact-item">
-                                        <span class="fact-label">Licencias:</span>
-                                        <span class="fact-value">Apertura y legalización ✓</span>
+                                        <span class="fact-label" data-lang-es="Licencias:" data-lang-en="Licenses:">Licencias:</span>
+                                        <span class="fact-value" data-lang-es="Apertura y legalización ✓" data-lang-en="Opening and legalization ✓">Apertura y legalización ✓</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Desviación:</span>
-                                        <span class="fact-value">< ±1% presupuesto</span>
+                                        <span class="fact-label" data-lang-es="Desviación:" data-lang-en="Deviation:">Desviación:</span>
+                                        <span class="fact-value" data-lang-es="< ±1% presupuesto" data-lang-en="< ±1% budget">< ±1% presupuesto</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Re-trabajos:</span>
-                                        <span class="fact-value">0 proyectos</span>
+                                        <span class="fact-label" data-lang-es="Re-trabajos:" data-lang-en="Reworks:">Re-trabajos:</span>
+                                        <span class="fact-value" data-lang-es="0 proyectos" data-lang-en="0 projects">0 proyectos</span>
                                     </div>
                                 </div>
                             </div>
@@ -896,43 +1102,43 @@
                         <!-- 8) Basic-Fit Sestao -->
                         <article class="case-study">
                             <div class="case-header">
-                                <div class="case-badge">GIMNASIO</div>
+                                <div class="case-badge" data-lang-es="GIMNASIO" data-lang-en="GYM">GIMNASIO</div>
                                 <div class="case-image">
                                     <img src="assets/images/basic-fit-sestao.jpg" alt="Basic-Fit Sestao" loading="lazy" width="400" height="300">
                                 </div>
                             </div>
                             <div class="case-content">
                                 <h3>Basic-Fit · Sestao</h3>
-                                <p class="case-subtitle">Transformación de local en gimnasio funcional</p>
-                                <p class="case-role"><strong>Rol:</strong> Dirección de obra y ejecución de obra</p>
+                                <p class="case-subtitle" data-lang-es="Transformación de local en gimnasio funcional" data-lang-en="Transformation of premises into a functional gym">Transformación de local en gimnasio funcional</p>
+                                <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Dirección de obra y ejecución de obra" data-lang-en="Construction management and execution">Dirección de obra y ejecución de obra</span></p>
                                 
                                 <div class="case-challenge">
-                                    <h4>🎯 Reto:</h4>
-                                    <p>Plazos ajustados y adecuación acústica/instalaciones para uso deportivo en local existente.</p>
+                                    <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                    <p data-lang-es="Plazos ajustados y adecuación acústica/instalaciones para uso deportivo en local existente." data-lang-en="Tight deadlines and acoustic/installation adaptation for sports use in an existing premises.">Plazos ajustados y adecuación acústica/instalaciones para uso deportivo en local existente.</p>
                                 </div>
                                 
                                 <div class="case-solution">
-                                    <h4>⚡ Qué hice:</h4>
-                                    <p>Planificación por fases, coordinación de proveedores especializados y control de calidad con reportes diarios Obratec.</p>
+                                    <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                    <p data-lang-es="Planificación por fases, coordinación de proveedores especializados y control de calidad con reportes diarios Obratec." data-lang-en="Phase planning, coordination with specialized suppliers, and quality control with daily Obratec reports.">Planificación por fases, coordinación de proveedores especializados y control de calidad con reportes diarios Obratec.</p>
                                 </div>
                                 
                                 <div class="case-results">
-                                    <h4>✅ Resultado:</h4>
-                                    <p>Apertura en <strong>11 semanas</strong>, con <strong>1.000 m²</strong> de entrenamiento y vestuarios completamente equipados.</p>
+                                    <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                    <p data-lang-es="Apertura en 11 semanas, con 1.000 m² de entrenamiento y vestuarios completamente equipados." data-lang-en="Opening in 11 weeks, with 1,000 m² of training area and fully equipped changing rooms.">Apertura en <strong>11 semanas</strong>, con <strong>1.000 m²</strong> de entrenamiento y vestuarios completamente equipados.</p>
                                 </div>
                                 
                                 <div class="case-facts">
                                     <div class="fact-item">
-                                        <span class="fact-label">Licencias:</span>
-                                        <span class="fact-value">Obra y actividad (gimnasio) ✓</span>
+                                        <span class="fact-label" data-lang-es="Licencias:" data-lang-en="Licenses:">Licencias:</span>
+                                        <span class="fact-value" data-lang-es="Obra y actividad (gimnasio) ✓" data-lang-en="Construction and activity (gym) ✓">Obra y actividad (gimnasio) ✓</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">CEE:</span>
-                                        <span class="fact-value">Emitido en 72h ✓</span>
+                                        <span class="fact-label" data-lang-es="CEE:" data-lang-en="EPC:">CEE:</span>
+                                        <span class="fact-value" data-lang-es="Emitido en 72h ✓" data-lang-en="Issued in 72h ✓">Emitido en 72h ✓</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Incidencias:</span>
-                                        <span class="fact-value">0 críticas</span>
+                                        <span class="fact-label" data-lang-es="Incidencias:" data-lang-en="Incidents:">Incidencias:</span>
+                                        <span class="fact-value" data-lang-es="0 críticas" data-lang-en="0 critical">0 críticas</span>
                                     </div>
                                 </div>
                             </div>
@@ -941,43 +1147,43 @@
                         <!-- 9) Sprinter Venlo -->
                         <article class="case-study">
                             <div class="case-header">
-                                <div class="case-badge">INTERNACIONAL</div>
+                                <div class="case-badge" data-lang-es="INTERNACIONAL" data-lang-en="INTERNATIONAL">INTERNACIONAL</div>
                                 <div class="case-image">
                                     <img src="assets/images/sprinter-venlo.jpg" alt="Sprinter Venlo" loading="lazy" width="400" height="300">
                                 </div>
                             </div>
                             <div class="case-content">
                                 <h3>Sprinter · Venlo (Países Bajos)</h3>
-                                <p class="case-subtitle">Apertura con normativa internacional</p>
-                                <p class="case-role"><strong>Rol:</strong> Coordinación técnica</p>
+                                <p class="case-subtitle" data-lang-es="Apertura con normativa internacional" data-lang-en="Opening with international regulations">Apertura con normativa internacional</p>
+                                <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Coordinación técnica" data-lang-en="Technical coordination">Coordinación técnica</span></p>
                                 
                                 <div class="case-challenge">
-                                    <h4>🎯 Reto:</h4>
-                                    <p>Adaptación a normativa neerlandesa y coordinación a distancia e in-situ con equipos locales.</p>
+                                    <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                    <p data-lang-es="Adaptación a normativa neerlandesa y coordinación a distancia e in-situ con equipos locales." data-lang-en="Adaptation to Dutch regulations and remote and on-site coordination with local teams.">Adaptación a normativa neerlandesa y coordinación a distancia e in-situ con equipos locales.</p>
                                 </div>
                                 
                                 <div class="case-solution">
-                                    <h4>⚡ Qué hice:</h4>
-                                    <p>Planificación de obra, coordinación de instaladores locales y documentación técnica adaptada.</p>
+                                    <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                    <p data-lang-es="Planificación de obra, coordinación de instaladores locales y documentación técnica adaptada." data-lang-en="Construction planning, coordination of local installers, and adapted technical documentation.">Planificación de obra, coordinación de instaladores locales y documentación técnica adaptada.</p>
                                 </div>
                                 
                                 <div class="case-results">
-                                    <h4>✅ Resultado:</h4>
-                                    <p>Entrega en <strong>9 semanas</strong> con validaciones técnicas sin incidencias.</p>
+                                    <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                    <p data-lang-es="Entrega en 9 semanas con validaciones técnicas sin incidencias." data-lang-en="Delivery in 9 weeks with technical validations without incidents.">Entrega en <strong>9 semanas</strong> con validaciones técnicas sin incidencias.</p>
                                 </div>
                                 
                                 <div class="case-facts">
                                     <div class="fact-item">
-                                        <span class="fact-label">Superficie:</span>
+                                        <span class="fact-label" data-lang-es="Superficie:" data-lang-en="Area:">Superficie:</span>
                                         <span class="fact-value">600 m²</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Permisos:</span>
-                                        <span class="fact-value">Locales (equiv. actividad) ✓</span>
+                                        <span class="fact-label" data-lang-es="Permisos:" data-lang-en="Permits:">Permisos:</span>
+                                        <span class="fact-value" data-lang-es="Locales (equiv. actividad) ✓" data-lang-en="Local (equiv. activity) ✓">Locales (equiv. actividad) ✓</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Incidencias:</span>
-                                        <span class="fact-value">0 críticas</span>
+                                        <span class="fact-label" data-lang-es="Incidencias:" data-lang-en="Incidents:">Incidencias:</span>
+                                        <span class="fact-value" data-lang-es="0 críticas" data-lang-en="0 critical">0 críticas</span>
                                     </div>
                                 </div>
                             </div>
@@ -986,43 +1192,43 @@
                         <!-- 10) LlaoLlao Calle Alcalá -->
                         <article class="case-study">
                             <div class="case-header">
-                                <div class="case-badge">MADRID CENTRO</div>
+                                <div class="case-badge" data-lang-es="MADRID CENTRO" data-lang-en="CENTRAL MADRID">MADRID CENTRO</div>
                                 <div class="case-image">
                                     <img src="assets/images/llaollao-alcala.jpg" alt="LlaoLlao Calle Alcalá Madrid" loading="lazy" width="400" height="300">
                                 </div>
                             </div>
                             <div class="case-content">
                                 <h3>LlaoLlao · Calle Alcalá (Madrid)</h3>
-                                <p class="case-subtitle">Construcción en ubicación céntrica estratégica</p>
-                                <p class="case-role"><strong>Rol:</strong> Director de obra y coordinación</p>
+                                <p class="case-subtitle" data-lang-es="Construcción en ubicación céntrica estratégica" data-lang-en="Construction in a strategic central location">Construcción en ubicación céntrica estratégica</p>
+                                <p class="case-role"><strong data-lang-es="Rol:" data-lang-en="Role:">Rol:</strong> <span data-lang-es="Director de obra y coordinación" data-lang-en="Construction manager and coordination">Director de obra y coordinación</span></p>
                                 
                                 <div class="case-challenge">
-                                    <h4>🎯 Reto:</h4>
-                                    <p>Construcción y adecuación de punto de venta en la céntrica calle Alcalá, zona de alto tránsito comercial.</p>
+                                    <h4 data-lang-es="🎯 Reto:" data-lang-en="🎯 Challenge:">🎯 Reto:</h4>
+                                    <p data-lang-es="Construcción y adecuación de punto de venta en la céntrica calle Alcalá, zona de alto tránsito comercial." data-lang-en="Construction and adaptation of a point of sale on the central Alcalá street, a high-traffic commercial area.">Construcción y adecuación de punto de venta en la céntrica calle Alcalá, zona de alto tránsito comercial.</p>
                                 </div>
                                 
                                 <div class="case-solution">
-                                    <h4>⚡ Qué hice:</h4>
-                                    <p>Proyecto integral incluyendo obra civil completa e instalaciones del nuevo local comercial adaptado al uso alimentario.</p>
+                                    <h4 data-lang-es="⚡ Qué hice:" data-lang-en="⚡ What I did:">⚡ Qué hice:</h4>
+                                    <p data-lang-es="Proyecto integral incluyendo obra civil completa e instalaciones del nuevo local comercial adaptado al uso alimentario." data-lang-en="Comprehensive project including complete civil works and installations of the new commercial premises adapted for food use.">Proyecto integral incluyendo obra civil completa e instalaciones del nuevo local comercial adaptado al uso alimentario.</p>
                                 </div>
                                 
                                 <div class="case-results">
-                                    <h4>✅ Resultado:</h4>
-                                    <p>Local comercial <strong>completamente operativo</strong> en zona premium con todas las instalaciones optimizadas.</p>
+                                    <h4 data-lang-es="✅ Resultado:" data-lang-en="✅ Result:">✅ Resultado:</h4>
+                                    <p data-lang-es="Local comercial completamente operativo en zona premium con todas las instalaciones optimizadas." data-lang-en="Fully operational commercial premises in a premium area with all optimized installations.">Local comercial <strong>completamente operativo</strong> en zona premium con todas las instalaciones optimizadas.</p>
                                 </div>
                                 
                                 <div class="case-facts">
                                     <div class="fact-item">
-                                        <span class="fact-label">Ubicación:</span>
-                                        <span class="fact-value">Madrid Centro</span>
+                                        <span class="fact-label" data-lang-es="Ubicación:" data-lang-en="Location:">Ubicación:</span>
+                                        <span class="fact-value" data-lang-es="Madrid Centro" data-lang-en="Central Madrid">Madrid Centro</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Licencias:</span>
-                                        <span class="fact-value">Obra + Actividad alimentaria ✓</span>
+                                        <span class="fact-label" data-lang-es="Licencias:" data-lang-en="Licenses:">Licencias:</span>
+                                        <span class="fact-value" data-lang-es="Obra + Actividad alimentaria ✓" data-lang-en="Construction + Food Activity ✓">Obra + Actividad alimentaria ✓</span>
                                     </div>
                                     <div class="fact-item">
-                                        <span class="fact-label">Estado:</span>
-                                        <span class="fact-value">Operativo</span>
+                                        <span class="fact-label" data-lang-es="Estado:" data-lang-en="Status:">Estado:</span>
+                                        <span class="fact-value" data-lang-es="Operativo" data-lang-en="Operational">Operativo</span>
                                     </div>
                                 </div>
                             </div>
@@ -1032,7 +1238,7 @@
 
                 <!-- Testimonio de cierre -->
                 <div class="testimonial-closing">
-                    <blockquote>
+                    <blockquote data-lang-es="Junto con una excelente preparación profesional, Pablo posee buenas dotes y excelentes cualidades personales lo que le hacen ser un profesional altamente recomendable. Su trato cercano y profesionalidad hacen que sea un placer trabajar con él." data-lang-en="Along with excellent professional preparation, Pablo has good skills and excellent personal qualities which make him a highly recommended professional. His close treatment and professionalism make it a pleasure to work with him.">
                         "Junto con una excelente preparación profesional, Pablo posee buenas dotes y excelentes cualidades personales lo que le hacen ser un profesional altamente recomendable. Su trato cercano y profesionalidad hacen que sea un placer trabajar con él."
                     </blockquote>
                     <cite> Zoilo España, Director de obra, Synergym España</cite>
@@ -1041,7 +1247,7 @@
                 <!-- CTA final -->
                 <div class="cases-cta">
                     <a href="#contacto" class="cta-button">
-                        <span>Quiero abrir mi local</span>
+                        <span data-lang-es="Quiero abrir mi local" data-lang-en="I want to open my store">Quiero abrir mi local</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
                         </svg>
@@ -1056,14 +1262,15 @@
         document.getElementById('toggle-cases').addEventListener('click', function() {
             const additionalCases = document.getElementById('additional-cases');
             const isVisible = additionalCases.style.display !== 'none';
+            const buttonSpan = this.querySelector('span');
             
             if (isVisible) {
                 additionalCases.style.display = 'none';
-                this.querySelector('span').textContent = 'Ver más casos';
+                buttonSpan.textContent = buttonSpan.dataset.langEs || 'Ver más casos';
                 this.querySelector('svg').style.transform = 'rotate(0deg)';
             } else {
                 additionalCases.style.display = 'block';
-                this.querySelector('span').textContent = 'Ver menos casos';
+                buttonSpan.textContent = buttonSpan.dataset.langEn || 'Ver menos casos';
                 this.querySelector('svg').style.transform = 'rotate(180deg)';
             }
         });
@@ -1075,8 +1282,8 @@
             <div class="container">
                 <div class="contact-content">
                     <div class="contact-info">
-                        <h2>¿Listo para abrir tu local sin sobresaltos?</h2>
-                        <p class="contact-lead">Hablemos de tu apertura. Te explico cómo gestiono <strong>licencias</strong>, <strong>proyecto de apertura</strong>, <strong>CEE en 36–72 h</strong> y <strong>obra coordinada</strong> para entregar en plazo y sin sorpresas.</p>
+                        <h2 data-lang-es="¿Listo para abrir tu local sin sobresaltos?" data-lang-en="Ready to open your store without any hitches?">¿Listo para abrir tu local sin sobresaltos?</h2>
+                        <p class="contact-lead" data-lang-es="Hablemos de tu apertura. Te explico cómo gestiono licencias, proyecto de apertura, CEE en 36–72 h y obra coordinada para entregar en plazo y sin sorpresas." data-lang-en="Let's talk about your opening. I'll explain how I manage licenses, opening project, EEC in 36–72 h, and coordinated construction to deliver on time and without surprises.">Hablemos de tu apertura. Te explico cómo gestiono <strong>licencias</strong>, <strong>proyecto de apertura</strong>, <strong>CEE en 36–72 h</strong> y <strong>obra coordinada</strong> para entregar en plazo y sin sorpresas.</p>
                         
                         <div class="contact-benefits">
                             <div class="benefit-item">
@@ -1086,8 +1293,8 @@
                                     </svg>
                                 </div>
                                 <div class="benefit-text">
-                                    <h4>Diagnóstico inicial sin coste</h4>
-                                    <p>Revisión de viabilidad, normativa y próximos pasos.</p>
+                                    <h4 data-lang-es="Diagnóstico inicial sin coste" data-lang-en="Free initial diagnosis">Diagnóstico inicial sin coste</h4>
+                                    <p data-lang-es="Revisión de viabilidad, normativa y próximos pasos." data-lang-en="Feasibility, regulatory and next steps review.">Revisión de viabilidad, normativa y próximos pasos.</p>
                                 </div>
                             </div>
                             
@@ -1098,8 +1305,8 @@
                                     </svg>
                                 </div>
                                 <div class="benefit-text">
-                                    <h4>Propuesta cerrada en 72 h</h4>
-                                    <p>Alcance, plazos y presupuesto con mi red de proveedores.</p>
+                                    <h4 data-lang-es="Propuesta cerrada en 72 h" data-lang-en="Closed proposal in 72 h">Propuesta cerrada en 72 h</h4>
+                                    <p data-lang-es="Alcance, plazos y presupuesto con mi red de proveedores." data-lang-en="Scope, deadlines and budget with my network of suppliers.">Alcance, plazos y presupuesto con mi red de proveedores.</p>
                                 </div>
                             </div>
                             
@@ -1110,112 +1317,112 @@
                                     </svg>
                                 </div>
                                 <div class="benefit-text">
-                                    <h4>Plan de obra y licencias</h4>
-                                    <p>Cronograma visual con hitos, inspecciones y entregas.</p>
+                                    <h4 data-lang-es="Plan de obra y licencias" data-lang-en="Construction and licensing plan">Plan de obra y licencias</h4>
+                                    <p data-lang-es="Cronograma visual con hitos, inspecciones y entregas." data-lang-en="Visual timeline with milestones, inspections and deliveries.">Cronograma visual con hitos, inspecciones y entregas.</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="contact-urgency">
-                            <p><strong>⚡ Disponibilidad limitada:</strong> Solo acepto 3 aperturas en paralelo para garantizar máxima atención.</p>
+                            <p><strong data-lang-es="⚡ Disponibilidad limitada:" data-lang-en="⚡ Limited availability:">⚡ Disponibilidad limitada:</strong> <span data-lang-es="Solo acepto 3 aperturas en paralelo para garantizar máxima atención." data-lang-en="I only accept 3 openings in parallel to ensure maximum attention.">Solo acepto 3 aperturas en paralelo para garantizar máxima atención.</span></p>
                         </div>
                     </div>
                     
                     <div class="contact-form-wrapper">
                         <form id="contact-form" class="contact-form-premium">
                             <div class="form-header">
-                                <h3>Cuéntame sobre tu apertura</h3>
-                                <p>Respuesta garantizada en menos de 48 h</p>
+                                <h3 data-lang-es="Cuéntame sobre tu apertura" data-lang-en="Tell me about your opening">Cuéntame sobre tu apertura</h3>
+                                <p data-lang-es="Respuesta garantizada en menos de 48 h" data-lang-en="Guaranteed response in less than 48 h">Respuesta garantizada en menos de 48 h</p>
                             </div>
                             
                             <div class="form-grid">
                                 <div class="form-group">
-                                    <label for="name">Nombre completo *</label>
+                                    <label for="name" data-lang-es="Nombre completo *" data-lang-en="Full name *">Nombre completo *</label>
                                     <input type="text" id="name" name="name" placeholder="Ej: María González" required>
                                     <div class="input-feedback"></div>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="company">Empresa</label>
+                                    <label for="company" data-lang-es="Empresa" data-lang-en="Company">Empresa</label>
                                     <input type="text" id="company" name="company" placeholder="Ej: Retail Fashion Group">
                                     <div class="input-feedback"></div>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="email">Email corporativo *</label>
+                                    <label for="email" data-lang-es="Email corporativo *" data-lang-en="Corporate email *">Email corporativo *</label>
                                     <input type="email" id="email" name="email" placeholder="Ej: maria@empresa.com" required>
                                     <div class="input-feedback"></div>
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="phone">Teléfono</label>
+                                    <label for="phone" data-lang-es="Teléfono" data-lang-en="Phone">Teléfono</label>
                                     <input type="tel" id="phone" name="phone" placeholder="Ej: +34 600 123 456">
                                     <div class="input-feedback"></div>
                                 </div>
                             </div>
                             
                             <div class="form-group full-width">
-                                <label for="project-type">Tipo de proyecto</label>
+                                <label for="project-type" data-lang-es="Tipo de proyecto" data-lang-en="Project type">Tipo de proyecto</label>
                                 <select id="project-type" name="project_type">
-                                    <option value="">Selecciona tipo de proyecto</option>
-                                    <option value="nueva-apertura">Nueva apertura de local</option>
-                                    <option value="reforma-integral">Reforma integral</option>
-                                    <option value="reforma-parcial">Reforma parcial</option>
-                                    <option value="expansion">Ampliación de local</option>
-                                    <option value="otros">Otros</option>
+                                    <option value="" data-lang-es="Selecciona tipo de proyecto" data-lang-en="Select project type">Selecciona tipo de proyecto</option>
+                                    <option value="nueva-apertura" data-lang-es="Nueva apertura de local" data-lang-en="New store opening">Nueva apertura de local</option>
+                                    <option value="reforma-integral" data-lang-es="Reforma integral" data-lang-en="Complete renovation">Reforma integral</option>
+                                    <option value="reforma-parcial" data-lang-es="Reforma parcial" data-lang-en="Partial renovation">Reforma parcial</option>
+                                    <option value="expansion" data-lang-es="Ampliación de local" data-lang-en="Store expansion">Ampliación de local</option>
+                                    <option value="otros" data-lang-es="Otros" data-lang-en="Others">Otros</option>
                                 </select>
                                 <div class="input-feedback"></div>
                             </div>
                             
                             <div class="form-group full-width">
-                                <label for="budget">Presupuesto estimado</label>
+                                <label for="budget" data-lang-es="Presupuesto estimado" data-lang-en="Estimated budget">Presupuesto estimado</label>
                                 <select id="budget" name="budget">
-                                    <option value="">Selecciona rango de presupuesto</option>
+                                    <option value="" data-lang-es="Selecciona rango de presupuesto" data-lang-en="Select budget range">Selecciona rango de presupuesto</option>
                                     <option value="20k-50k">€20.000 - €50.000</option>
                                     <option value="50k-100k">€50.000 - €100.000</option>
                                     <option value="100k-200k">€100.000 - €200.000</option>
-                                    <option value="200k+">Más de €200.000</option>
+                                    <option value="200k+" data-lang-es="Más de €200.000" data-lang-en="More than €200,000">Más de €200.000</option>
                                 </select>
                                 <div class="input-feedback"></div>
                             </div>
                             
                             <div class="form-group full-width">
-                                <label for="timeline">Plazo de apertura</label>
+                                <label for="timeline" data-lang-es="Plazo de apertura" data-lang-en="Opening deadline">Plazo de apertura</label>
                                 <select id="timeline" name="timeline">
-                                    <option value="">¿Cuándo necesitas empezar?</option>
-                                    <option value="inmediato">Inmediato (menos de 2 semanas)</option>
-                                    <option value="1-mes">En 1 mes</option>
-                                    <option value="2-3-meses">En 2-3 meses</option>
-                                    <option value="6-meses">En 6 meses o más</option>
+                                    <option value="" data-lang-es="¿Cuándo necesitas empezar?" data-lang-en="When do you need to start?">¿Cuándo necesitas empezar?</option>
+                                    <option value="inmediato" data-lang-es="Inmediato (menos de 2 semanas)" data-lang-en="Immediate (less than 2 weeks)">Inmediato (menos de 2 semanas)</option>
+                                    <option value="1-mes" data-lang-es="En 1 mes" data-lang-en="In 1 month">En 1 mes</option>
+                                    <option value="2-3-meses" data-lang-es="En 2-3 meses" data-lang-en="In 2-3 months">En 2-3 meses</option>
+                                    <option value="6-meses" data-lang-es="En 6 meses o más" data-lang-en="In 6 months or more">En 6 meses o más</option>
                                 </select>
                                 <div class="input-feedback"></div>
                             </div>
                             
                             <div class="form-group full-width">
-                                <label for="message">Detalles de la apertura *</label>
+                                <label for="message" data-lang-es="Detalles de la apertura *" data-lang-en="Opening details *">Detalles de la apertura *</label>
                                 <textarea id="message" name="message" rows="4" placeholder="Municipio/Ayuntamiento, dirección, superficie (m²), uso del local, fecha objetivo, documentación disponible (planos/fotos)..." required></textarea>
                                 <div class="input-feedback"></div>
                                 <div class="character-count">0/500 caracteres</div>
                                 <!-- MICRO-COPY: Valor añadido -->
-                                <div class="field-note">💡 Cuanta más info incluyas, más preciso será mi diagnóstico</div>
+                                <div class="field-note" data-lang-es="💡 Cuanta más info incluyas, más preciso será mi diagnóstico" data-lang-en="💡 The more info you include, the more accurate my diagnosis will be">💡 Cuanta más info incluyas, más preciso será mi diagnóstico</div>
                             </div>
                             
                             <div class="form-actions">
                                 <button type="submit" class="cta-button">
-                                    <span>Solicitar diagnóstico de apertura</span>
+                                    <span data-lang-es="Solicitar diagnóstico de apertura" data-lang-en="Request opening diagnosis">Solicitar diagnóstico de apertura</span>
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
                                     </svg>
                                 </button>
                                 <!-- MICRO-COPY: Refuerzo de valor -->
-                                <div class="cta-benefits">
+                                <div class="cta-benefits" data-lang-es="✓ Diagnóstico gratuito ✓ Respuesta en 48h ✓ Sin compromiso" data-lang-en="✓ Free diagnosis ✓ Response in 48h ✓ No commitment">
                                     ✓ Diagnóstico gratuito  ✓ Respuesta en 48h  ✓ Sin compromiso
                                 </div>
                                 <p class="form-privacy">
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                                     </svg>
-                                    Uso exclusivo para valorar tu proyecto. Sin spam.
+                                    <span data-lang-es="Uso exclusivo para valorar tu proyecto. Sin spam." data-lang-en="Exclusive use to assess your project. No spam.">Uso exclusivo para valorar tu proyecto. Sin spam.</span>
                                 </p>
                             </div>
                             
@@ -1230,7 +1437,7 @@
 
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; 2025 Pablo Cabello. Todos los derechos reservados.</p>
+            <p data-lang-es="&copy; 2025 Pablo Cabello. Todos los derechos reservados." data-lang-en="&copy; 2025 Pablo Cabello. All rights reserved.">&copy; 2025 Pablo Cabello. Todos los derechos reservados.</p>
             <p><a href="https://www.linkedin.com/in/pablocabelloat/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
         </div>
     </footer>

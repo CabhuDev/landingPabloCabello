@@ -1,13 +1,23 @@
 /**
- * Service Worker para Pablo Cabello - v1.5.0 - Mobile Reload Fix
+ * Service Worker para Pablo Cabello - v2.0.0 - Smart Cache Strategy
  *
- * ESTRATEGIA DE CACHÉ ESTABLE:
- * - HTML: Network-First con fallback a cache
- * - ASSETS (CSS, JS, Imágenes): Cache-First para velocidad
- * - Sin recarga automática de clientes para evitar bucles
+ * ESTRATEGIA DE CACHÉ INTELIGENTE:
+ * - HTML: Network-First (siempre fresco)
+ * - CSS/JS: Stale-While-Revalidate (rápido + actualizado)
+ * - Imágenes: Cache-First con TTL
+ * - Versionado automático para actualizaciones sin problemas
  */
 
-const CACHE_NAME = 'pablo-cabello-v1.5.0';
+const CACHE_VERSION = '2.0.0';
+const CACHE_NAME = `pablo-cabello-v${CACHE_VERSION}`;
+
+// TTL para diferentes tipos de recursos (en milisegundos)
+const CACHE_TTL = {
+    images: 7 * 24 * 60 * 60 * 1000,    // 7 días
+    styles: 24 * 60 * 60 * 1000,        // 1 día  
+    scripts: 24 * 60 * 60 * 1000,       // 1 día
+    html: 60 * 60 * 1000                // 1 hora
+};
 const STATIC_ASSETS = [
     // NUNCA cachear HTML como asset estático - solo assets reales
     '/assets/css/style.css',
@@ -56,67 +66,108 @@ self.addEventListener('activate', event => {
     );
 });
 
-// --- 3. Evento Fetch: El núcleo de la solución ---
-// Decide cómo responder a las peticiones: Network-First para HTML, Cache-First para assets.
+// --- UTILIDADES DE CACHE ---
+function isExpired(response, ttl) {
+    if (!response) return true;
+    
+    const cachedAt = response.headers.get('sw-cached-at');
+    if (!cachedAt) return true;
+    
+    const age = Date.now() - parseInt(cachedAt);
+    return age > ttl;
+}
+
+function addTimestampToResponse(response) {
+    const newHeaders = new Headers(response.headers);
+    newHeaders.set('sw-cached-at', Date.now().toString());
+    
+    return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers: newHeaders
+    });
+}
+
+function getResourceType(url) {
+    if (url.includes('.css')) return 'styles';
+    if (url.includes('.js')) return 'scripts';
+    if (url.match(/\.(jpg|jpeg|png|gif|svg|webp|ico)$/i)) return 'images';
+    return 'html';
+}
+
+// --- 3. Evento Fetch: Estrategia inteligente ---
 self.addEventListener('fetch', event => {
-    // Ignorar peticiones que no son GET (ej. POST a la API) y de otros orígenes.
     if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
         return;
     }
 
-    // ESTRATEGIA 1: Network-First ESTRICTO para HTML (navegación y requests directos)
+    const resourceType = getResourceType(event.request.url);
     const isHTMLRequest = event.request.mode === 'navigate' ||
                          event.request.destination === 'document' ||
                          event.request.url.endsWith('/') ||
-                         event.request.url.includes('index.html') ||
-                         event.request.headers.get('accept')?.includes('text/html');
+                         resourceType === 'html';
 
     if (isHTMLRequest) {
-        console.log(`[SW ${CACHE_NAME}] HTML Request detected:`, event.request.url);
+        // ESTRATEGIA 1: Network-First para HTML (siempre fresco)
         event.respondWith(
             fetch(event.request, { cache: 'no-cache' })
                 .then(response => {
-                    console.log(`[SW ${CACHE_NAME}] Fresh HTML from network:`, event.request.url);
-                    // NO cachear HTML - solo devolverlo
+                    console.log(`[SW ${CACHE_NAME}] Fresh HTML from network`);
                     return response;
                 })
                 .catch(() => {
-                    // Solo si la red falla completamente, buscar en caché
-                    console.log(`[SW ${CACHE_NAME}] Network failed. Trying cache for:`, event.request.url);
+                    console.log(`[SW ${CACHE_NAME}] Network failed, trying cache`);
                     return caches.match(event.request).then(cached => {
-                        if (cached) {
-                            console.log(`[SW ${CACHE_NAME}] Serving cached fallback`);
+                        if (cached && !isExpired(cached, CACHE_TTL.html)) {
                             return cached;
                         }
-                        // Si no hay caché, devolver página de error básica
                         return new Response('<h1>Sin conexión</h1><p>No se puede cargar la página</p>', {
                             headers: { 'Content-Type': 'text/html' }
                         });
                     });
                 })
         );
-        return;
-    }
-
-    // ESTRATEGIA 2: Cache-First para assets estáticos (CSS, JS, imágenes)
-    event.respondWith(
-        caches.match(event.request)
-            .then(cachedResponse => {
-                // Si el asset está en caché, lo servimos desde ahí. Es lo más rápido.
-                if (cachedResponse) {
+    } else if (resourceType === 'images') {
+        // ESTRATEGIA 2: Cache-First con TTL para imágenes
+        event.respondWith(
+            caches.match(event.request).then(cachedResponse => {
+                if (cachedResponse && !isExpired(cachedResponse, CACHE_TTL.images)) {
                     return cachedResponse;
                 }
-                // Si no está en caché, lo buscamos en la red.
+                
                 return fetch(event.request).then(networkResponse => {
-                    // Y lo guardamos en caché para la próxima vez.
-                    const responseClone = networkResponse.clone();
+                    const responseWithTimestamp = addTimestampToResponse(networkResponse.clone());
                     caches.open(CACHE_NAME).then(cache => {
-                        cache.put(event.request, responseClone);
+                        cache.put(event.request, responseWithTimestamp);
                     });
                     return networkResponse;
                 });
             })
-    );
+        );
+    } else {
+        // ESTRATEGIA 3: Stale-While-Revalidate para CSS/JS
+        event.respondWith(
+            caches.match(event.request).then(cachedResponse => {
+                const fetchPromise = fetch(event.request).then(networkResponse => {
+                    const responseWithTimestamp = addTimestampToResponse(networkResponse.clone());
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request, responseWithTimestamp);
+                    });
+                    return networkResponse;
+                }).catch(() => cachedResponse);
+
+                // Si hay cache y no ha expirado, servirlo inmediatamente
+                if (cachedResponse && !isExpired(cachedResponse, CACHE_TTL[resourceType])) {
+                    // Actualizar en segundo plano
+                    fetchPromise.catch(() => {});
+                    return cachedResponse;
+                }
+                
+                // Si no hay cache válido, esperar la red
+                return fetchPromise;
+            })
+        );
+    }
 });
 
 // --- OTROS EVENTOS (Sync, Push, etc.) ---

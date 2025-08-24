@@ -43,28 +43,7 @@ self.addEventListener('install', event => {
     );
 });
 
-// --- 2. Evento de Activación ---
-self.addEventListener('activate', event => {
-    console.log(`[SW ${CACHE_NAME}] Activando...`);
-    event.waitUntil(
-        caches.keys().then(cacheNames => {
-            console.log(`[SW ${CACHE_NAME}] Limpiando cachés antiguas:`, cacheNames);
-            return Promise.all(
-                cacheNames.map(cacheName => {
-                    // Solo eliminar cachés de versiones anteriores
-                    if (cacheName !== CACHE_NAME) {
-                        console.log(`[SW ${CACHE_NAME}] Eliminando caché antigua: ${cacheName}`);
-                        return caches.delete(cacheName);
-                    }
-                })
-            );
-        }).then(() => {
-            console.log(`[SW ${CACHE_NAME}] Activado correctamente.`);
-            // Tomar control pero SIN recargar clientes
-            return self.clients.claim();
-        })
-    );
-});
+// --- 2. Evento de Activación (con notificación de actualización) ---
 
 // --- UTILIDADES DE CACHE ---
 function isExpired(response, ttl) {
@@ -189,4 +168,44 @@ self.addEventListener('message', event => {
         console.log(`[SW ${CACHE_NAME}] Saltando espera por petición del cliente`);
         self.skipWaiting();
     }
+});
+
+// Notificar a los clientes cuando el SW se activa
+self.addEventListener('activate', event => {
+    console.log(`[SW ${CACHE_NAME}] Activando...`);
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            console.log(`[SW ${CACHE_NAME}] Limpiando cachés antiguas:`, cacheNames);
+            return Promise.all(
+                cacheNames.map(cacheName => {
+                    if (cacheName !== CACHE_NAME) {
+                        console.log(`[SW ${CACHE_NAME}] Eliminando caché antigua: ${cacheName}`);
+                        return caches.delete(cacheName);
+                    }
+                })
+            );
+        }).then(() => {
+            console.log(`[SW ${CACHE_NAME}] Activado correctamente.`);
+            // Notificar a todos los clientes que el SW se ha actualizado
+            return self.clients.claim().then(() => {
+                console.log(`[SW ${CACHE_NAME}] Claiming clients...`);
+                return self.clients.matchAll({ includeUncontrolled: true });
+            }).then(clients => {
+                console.log(`[SW ${CACHE_NAME}] Found ${clients.length} clients to notify`);
+                const notificationPromises = clients.map(client => {
+                    console.log(`[SW ${CACHE_NAME}] Notifying client: ${client.id}`);
+                    try {
+                        client.postMessage({ type: 'SW_UPDATED' });
+                    } catch (error) {
+                        console.error(`[SW ${CACHE_NAME}] Failed to notify client:`, error);
+                    }
+                });
+                
+                // Dar tiempo extra para que los mensajes se envíen
+                return new Promise(resolve => {
+                    setTimeout(resolve, 100);
+                });
+            });
+        })
+    );
 });

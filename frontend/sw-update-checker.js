@@ -127,10 +127,7 @@ class ServiceWorkerUpdateManager {
 
     activateUpdate() {
         if (this.swRegistration && this.swRegistration.waiting) {
-            // Enviar mensaje al SW para que se active
-            this.swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
-            
-            // Remover notificación
+            // Remover notificación inmediatamente
             const notification = document.getElementById('sw-update-notification');
             if (notification) {
                 notification.remove();
@@ -138,11 +135,23 @@ class ServiceWorkerUpdateManager {
 
             // Mostrar mensaje de recarga
             this.showReloadMessage();
+            
+            // Enviar mensaje al SW para que se active
+            this.swRegistration.waiting.postMessage({ type: 'SKIP_WAITING' });
+            
+            // Fallback adicional: Si el SW no responde en 3 segundos, recargar igualmente
+            this.fallbackTimeout = setTimeout(() => {
+                console.log('SW Update: Fallback timeout - SW didn\'t respond, forcing reload');
+                if (document.getElementById('sw-reload-message')) {
+                    window.location.reload(true);
+                }
+            }, 3000);
         }
     }
 
     showReloadMessage() {
         const message = document.createElement('div');
+        message.id = 'sw-reload-message';
         message.innerHTML = `
             <div style="
                 position: fixed;
@@ -178,13 +187,35 @@ class ServiceWorkerUpdateManager {
         `;
         
         document.body.appendChild(message);
+        
+        // Timeout de seguridad más largo - si no se recarga en 8 segundos, forzar recarga
+        this.safetyTimeout = setTimeout(() => {
+            console.log('SW Update: Safety timeout reached, forcing reload');
+            if (document.getElementById('sw-reload-message')) {
+                window.location.reload(true);
+            }
+        }, 8000);
     }
 
     handleSwUpdated() {
-        // Recargar la página para usar la nueva versión
-        setTimeout(() => {
-            window.location.reload();
-        }, 1500);
+        console.log('SW Update: Received SW_UPDATED message, reloading...');
+        
+        // Cancelar todos los timeouts si existen
+        if (this.safetyTimeout) {
+            clearTimeout(this.safetyTimeout);
+        }
+        if (this.fallbackTimeout) {
+            clearTimeout(this.fallbackTimeout);
+        }
+        
+        // Eliminar mensaje de carga antes de recargar
+        const reloadMessage = document.getElementById('sw-reload-message');
+        if (reloadMessage) {
+            reloadMessage.remove();
+        }
+        
+        // Recargar inmediatamente sin delay adicional
+        window.location.reload(true);
     }
 }
 

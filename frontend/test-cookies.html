@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Cookie Banner</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/cookie-banner.css">
+    <style>
+        body {
+            padding: 50px;
+            font-family: 'Inter', sans-serif;
+        }
+        .test-info {
+            background: #f0f8ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #001B2E;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h1>🍪 Test del Banner de Cookies</h1>
+        <p>Esta página sirve para probar el funcionamiento del banner de cookies.</p>
+        <p><strong>¿Qué debería pasar?</strong></p>
+        <ul>
+            <li>✅ El banner aparece después de 1 segundo en la parte inferior</li>
+            <li>✅ Muestra el mensaje sobre cookies con botones de acción</li>
+            <li>✅ Al hacer clic en "Aceptar todas", el banner desaparece</li>
+            <li>✅ Al recargar la página, el banner NO aparece (consentimiento guardado)</li>
+        </ul>
+        <p><strong>Para resetear:</strong> Abre las herramientas de desarrollador → Application → Local Storage → Elimina "pablo-cabello-cookies"</p>
+        
+        <button onclick="localStorage.clear(); location.reload();" style="padding: 10px 20px; background: #001B2E; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            🔄 Limpiar LocalStorage y recargar
+        </button>
+    </div>
+
+    <div style="height: 100vh; display: flex; align-items: center; justify-content: center;">
+        <h2>Esperando que aparezca el banner de cookies...</h2>
+    </div>
+
+    <script src="assets/js/cookie-banner.js" defer></script>
+    <script>
+        // Debug info
+        setTimeout(() => {
+            console.log('🍪 Cookie Banner Debug Info:');
+            console.log('LocalStorage:', localStorage.getItem('pablo-cabello-cookies'));
+            console.log('Banner element:', document.getElementById('cookie-banner'));
+            
+            if (document.getElementById('cookie-banner')) {
+                console.log('✅ Banner element created successfully');
+            } else {
+                console.log('❌ Banner element NOT found');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

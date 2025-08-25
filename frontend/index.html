@@ -28,6 +28,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/cookie-banner.css">
     
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700&display=swap">
@@ -345,59 +346,11 @@
     
 
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KE03XZJNV6"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-KE03XZJNV6', {
-            // Enhanced ecommerce and conversion tracking
-            send_page_view: true,
-            custom_map: {
-                'custom_parameter_1': 'lead_source',
-                'custom_parameter_2': 'project_type'
-            }
-        });
-        
-        // Track micro-conversions
-        function trackMicroConversion(action, category = 'engagement') {
-            gtag('event', action, {
-                event_category: category,
-                event_label: window.location.pathname
-            });
-        }
-        
-        // Track form interactions
-        function trackFormProgress(step, form_name = 'contact_form') {
-            gtag('event', 'form_progress', {
-                event_category: 'form',
-                event_label: form_name,
-                custom_parameter_1: step
-            });
-        }
-        
-        // Track conversions with value
-        function trackConversion(value = 0, currency = 'EUR') {
-            gtag('event', 'conversion', {
-                event_category: 'lead_generation',
-                value: value,
-                currency: currency
-            });
-        }
-    </script>
+    <!-- Google Analytics 4 - Carga condicional -->
+    <!-- El script se carga solo si hay consentimiento de cookies -->
     
-    <!-- Hotjar Heatmaps & Recording -->
-    <!-- Hotjar Tracking Code for https://pablocabello.com/ -->
-    <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:6500399,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    <!-- Hotjar - Carga condicional -->
+    <!-- El script se carga solo si hay consentimiento de cookies -->
     </script>
     
     <!-- Service Worker Registration - Fixed reload loop -->
@@ -1465,7 +1418,11 @@
                     <img src="assets/images/LOGO-Pablo Cabello-500x200-SinFondoClaro.png" alt="Pablo Cabello Logo" class="footer-logo-img">
                 </div>
                 <div class="footer-info">
-                    <p data-lang-es="&copy; 2025 Pablo Cabello. Todos los derechos reservados." data-lang-en="&copy; 2025 Pablo Cabello. All rights reserved.">&copy; 2025 Pablo Cabello. Todos los derechos reservados.</p>
+                    <p>&copy; 2025 Pablo Cabello - Arquitecto Técnico | 
+                    <a href="aviso-legal.html">Aviso Legal</a> | 
+                    <a href="politica-privacidad.html">Privacidad</a> | 
+                    <a href="#" onclick="showCookieSettings()">Cookies</a>
+                    </p>
                     <p><a href="https://www.linkedin.com/in/pablocabelloat/" target="_blank" rel="noopener noreferrer" class="linkedin-link">
                         <img src="assets/images/linkedin_icon.svg" alt="LinkedIn" class="linkedin-icon">
                         LinkedIn
@@ -1475,5 +1432,13 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="assets/js/cookie-banner.js" defer></script>
+    <script src="assets/js/analytics-tracker-gdpr.js" defer></script>
+    <script src="assets/js/form-handler.js" defer></script>
+    <script src="assets/js/language-switcher.js" defer></script>
+    <script src="assets/js/events.js" defer></script>
+    <script src="assets/js/performance-optimizer.js" defer></script>
+    <script src="assets/js/ab-testing.js" defer></script>
 </body>
 </html>

@@ -60,25 +60,26 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        "inLanguage": ["es", "en"],
+        "@type": "LocalBusiness",
         "name": [
-            { "@language": "es", "@value": "Pablo Cabello - Arquitecto Técnico Especialista en Retail" },
-            { "@language": "en", "@value": "Pablo Cabello - Retail Specialist Technical Architect" }
+            { "@language": "es", "@value": "Pablo Cabello - Arquitecto Técnico" },
+            { "@language": "en", "@value": "Pablo Cabello - Technical Architect" }
         ],
         "alternateName": [
-            { "@language": "es", "@value": "Pablo Cabello Aparejador" },
-            { "@language": "en", "@value": "Pablo Cabello Technical Architect" },
-            { "@language": "es", "@value": "Aparejador Granada Retail" }
+            "Pablo Cabello Aparejador",
+            "Obratec - Metodología de Construcción",
+            "Aparejador Granada Retail"
         ],
         "description": [
             { "@language": "es", "@value": "Arquitecto Técnico Colegiado con 10+ años de experiencia especializado en aperturas retail y franquicias. Metodología propia Obratec para entregas a tiempo con licencias tramitadas y CEE en 36-72h." },
-            { "@language": "en", "@value": "Chartered Technical Architect with 10+ years of experience specializing in retail openings and franchises. Proprietary Obratec methodology for on-time deliveries with processed licenses and EEC in 36-72h." }
+            { "@language": "en", "@value": "Chartered Technical Architect with 10+ years of experience specialized in retail and franchise openings. Proprietary Obratec methodology for on-time deliveries with processed licenses and EPC in 36-72h." }
         ],
         "url": "https://pablocabello.com",
         "sameAs": [
             "https://www.linkedin.com/in/pablo-cabello-hurtado",
-            "https://obratec.es"
+            "https://obratec.es",
+            "https://www.coaatgr.es/colegiado.asp?colegiado=90533",
+            "https://github.com/CabhuDev"
         ],
         "telephone": "+34-600-518-588",
         "email": "pablo.cabello.hurtado@gmail.com",
@@ -87,57 +88,56 @@
             "telephone": "+34-600-518-588",
             "contactType": "customer service",
             "areaServed": "ES",
-            "availableLanguage": ["Spanish", "English"]
+            "availableLanguage": ["Spanish", "English"],
+            "hoursAvailable": "Mo-Fr 09:00-18:00"
         },
         "address": {
             "@type": "PostalAddress",
-            "addressRegion": "Andalucía",
-            "postalCode": "18194", 
-            "addressLocality": "Granada",
+            "streetAddress": "Costa Rica 49",
+            "addressLocality": "Churriana de la Vega",
+            "addressRegion": "Granada",
+            "postalCode": "18194",
             "addressCountry": "ES"
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": "37.1773",
-            "longitude": "-3.5986"
+            "latitude": 37.1773,
+            "longitude": -3.5986
         },
         "founder": {
             "@type": "Person",
             "name": "Pablo Cabello Hurtado",
-            "jobTitle": [
-                { "@language": "es", "@value": "Arquitecto Técnico y Desarrollador" },
-                { "@language": "en", "@value": "Technical Architect and Developer" }
-            ],
-            "alumniOf": [
-                {
-                    "@type": "CollegeOrUniversity",
-                    "name": "Universidad de Granada"
-                }
-            ],
-            "hasCredential": [
-                {
-                    "@type": "EducationalOccupationalCredential",
-                    "credentialCategory": "Professional License",
-                    "name": [
-                        { "@language": "es", "@value": "Arquitecto Técnico Colegiado" },
-                        { "@language": "en", "@value": "Chartered Technical Architect" }
-                    ],
-                    "issuedBy": "Colegio de Aparejadores de Granada",
-                    "credentialId": "90533",
-                    "dateCreated": "2013"
-                }
-            ],
-            "hasOccupation": [
-                {
-                    "@type": "Occupation",
-                    "name": "Arquitecto Técnico",
-                    "occupationLocation": "Granada, España",
-                    "estimatedSalary": {
-                        "@type": "MonetaryAmountDistribution",
-                        "currency": "EUR",
-                        "duration": "P1Y"
-                    }
-                }
+            "jobTitle": "Arquitecto Técnico",
+            "alumniOf": {
+                "@type": "CollegeOrUniversity",
+                "name": "Universidad de Granada",
+                "sameAs": "https://www.ugr.es"
+            },
+            "hasCredential": {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "Professional License",
+                "name": "Arquitecto Técnico Colegiado",
+                "issuedBy": {
+                    "@type": "Organization",
+                    "name": "Colegio Oficial de Aparejadores y Arquitectos Técnicos de Granada",
+                    "url": "https://www.coaatgr.es"
+                },
+                "identifier": "90533",
+                "validFrom": "2013"
+            },
+            "knowsAbout": [
+                "Arquitectura Técnica",
+                "Retail Construction",
+                "Franchise Development",
+                "Energy Performance Certificates",
+                "Construction Project Management",
+                "Building Permits",
+                "Construction Supervision",
+                "Quality Control",
+                "Obratec Methodology",
+                "Web Development",
+                "JavaScript",
+                "HTML/CSS"
             ]
         },
         "serviceType": [
@@ -156,11 +156,15 @@
         ],
         "areaServed": [
             {
+                "@type": "AdministrativeArea",
+                "name": "Andalucía"
+            },
+            {
                 "@type": "City",
                 "name": "Granada"
             },
             {
-                "@type": "City", 
+                "@type": "City",
                 "name": "Córdoba"
             },
             {
@@ -185,59 +189,7 @@
             }
         ],
         "priceRange": "€€€",
-        "knowsAbout": [
-            "Arquitectura Técnica",
-            "Retail Construction",
-            "Franchise Development", 
-            "Energy Performance Certificates",
-            "Construction Project Management",
-            "Building Permits",
-            "Construction Supervision",
-            "Quality Control",
-            "Obratec Methodology",
-            "Web Development"
-        ],
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "50",
-            "bestRating": "5",
-            "worstRating": "5"
-        },
-        "review": [
-            {
-                "@type": "Review",
-                "author": {
-                    "@type": "Person",
-                    "name": "María González - LlaoLlao"
-                },
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5"
-                },
-                "reviewBody": [
-                    { "@language": "es", "@value": "Pablo gestionó nuestra apertura en Gran Vía Granada cumpliendo todas las exigencias sanitarias. CEE emitido en 24h y obra finalizada sin retrasos." },
-                    { "@language": "en", "@value": "Pablo managed our opening in Gran Vía Granada meeting all sanitary requirements. EPC issued in 24h and construction completed without delays." }
-                ],
-                "datePublished": "2024"
-            },
-            {
-                "@type": "Review", 
-                "author": {
-                    "@type": "Person",
-                    "name": "Director Clínica Baviera"
-                },
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5"
-                },
-                "reviewBody": [
-                    { "@language": "es", "@value": "Desarrollo integral de nuestra clínica en Vélez-Málaga. Gestión completa desde demolición hasta acabados especializados. Cero retrabajos." },
-                    { "@language": "en", "@value": "Comprehensive development of our clinic in Vélez-Málaga. Complete management from demolition to specialized finishes. Zero rework." }
-                ],
-                "datePublished": "2024"
-            }
-        ],
+        "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
         "offers": [
             {
                 "@type": "Offer",
@@ -249,10 +201,12 @@
                     { "@language": "es", "@value": "Proyecto completo de apertura, CEE en 36-72h, gestión de obra y reportes Obratec en tiempo real" },
                     { "@language": "en", "@value": "Complete opening project, EPC in 36-72h, construction management and real-time Obratec reports" }
                 ],
-                "category": "Construction Services"
+                "category": "Construction Services",
+                "availability": "https://schema.org/InStock",
+                "areaServed": "ES"
             },
             {
-                "@type": "Offer", 
+                "@type": "Offer",
                 "name": [
                     { "@language": "es", "@value": "Certificado Energético Express" },
                     { "@language": "en", "@value": "Express Energy Certificate" }
@@ -261,7 +215,9 @@
                     { "@language": "es", "@value": "CEE en 24-48h con visita, toma de datos, emisión y registro autonómico incluido" },
                     { "@language": "en", "@value": "EPC in 24-48h with visit, data collection, issuance and regional registration included" }
                 ],
-                "category": "Energy Certification"
+                "category": "Energy Certification",
+                "availability": "https://schema.org/InStock",
+                "areaServed": "ES"
             },
             {
                 "@type": "Offer",
@@ -273,13 +229,15 @@
                     { "@language": "es", "@value": "Comunicación con ayuntamiento y documentación completa con Obratec Forms" },
                     { "@language": "en", "@value": "Communication with city council and complete documentation with Obratec Forms" }
                 ],
-                "category": "Administrative Services"
+                "category": "Administrative Services",
+                "availability": "https://schema.org/InStock",
+                "areaServed": "ES"
             }
         ],
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": [
-                { "@language": "es", "@value": "Servicios de Aparejador para Retail y Franquicias" },
+                { "@language": "es", "@value": "Servicios de Arquitecto Técnico para Retail y Franquicias" },
                 { "@language": "en", "@value": "Technical Architect Services for Retail and Franchises" }
             ],
             "itemListElement": [
@@ -300,7 +258,7 @@
                 {
                     "@type": "Offer",
                     "itemOffered": {
-                        "@type": "Service", 
+                        "@type": "Service",
                         "name": [
                             { "@language": "es", "@value": "Entregas 100% a Tiempo" },
                             { "@language": "en", "@value": "100% On-Time Deliveries" }
@@ -313,18 +271,8 @@
                 }
             ]
         },
-        "award": [
-            {
-                "@type": "Award",
-                "name": "100% Entregas a Tiempo",
-                "description": "50+ proyectos entregados sin retrasos en los últimos 5 años"
-            },
-            {
-                "@type": "Award", 
-                "name": "Cero Retrabajos",
-                "description": "Metodología Obratec garantiza calidad sin necesidad de rehacer trabajos"
-            }
-        ],
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "currenciesAccepted": "EUR",
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://pablocabello.com"
